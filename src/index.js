@@ -15,10 +15,13 @@ import Detail from './../view/detail/detail.vue'
 
 import User from './../view/user/user.vue'
 
+import Message from './../view/message/message.vue'
+
 const routes = [
     { path: '/', component: Home },
     { path: '/detail', component:Detail},
-    { path: '/user', component:User}
+    { path: '/user', component:User},
+    { path: '/msg', component:Message}
 ];
 
 const router = new VueRouter({
