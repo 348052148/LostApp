@@ -104,11 +104,12 @@
         width:100%;
         height:100%;
         display:inline-block;
+        padding:0 20px;
 
     }
     .cat .content .item {
         display:inline-block;
-        width:24%;
+        width:21%;
         margin-top:20px;
     }
     .cat .content .item img{
@@ -116,7 +117,7 @@
         height:55px;
         text-align:center;
         display:inline-block;
-        margin-left:18px;
+        margin-left:15px;
     }
     .cat .content .item span{
          display:inline-block;
