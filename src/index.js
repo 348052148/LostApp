@@ -13,9 +13,12 @@ import Home from './../view/home/home.vue'
 
 import Detail from './../view/detail/detail.vue'
 
+import User from './../view/user/user.vue'
+
 const routes = [
     { path: '/', component: Home },
-    { path: '/detail', component:Detail}
+    { path: '/detail', component:Detail},
+    { path: '/user', component:User}
 ];
 
 const router = new VueRouter({

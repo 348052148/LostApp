@@ -18,7 +18,7 @@
 
                 <div class="tag">
                     <span class="taginfo"><mt-badge size="large" color="red" >丢</mt-badge></span>
-                
+                    <span class="Fill"></span>
                     <span class="chat"><mt-badge size="small" color="#ff9900" >归还</mt-badge> <mt-badge size="small" color="#ff9900" >联系他</mt-badge></span>
                 </div>
                 
@@ -81,7 +81,6 @@
         display:inline-block;
         margin-top:34px;
         padding-top:8px;
-        margin-bottom:12px;
     }
     .detail .m-info .info .avater {
         display:inline-block;
