@@ -17,11 +17,14 @@ import User from './../view/user/user.vue'
 
 import Message from './../view/message/message.vue'
 
+import List from './../view/list/list.vue'
+
 const routes = [
     { path: '/', component: Home },
     { path: '/detail', component:Detail},
     { path: '/user', component:User},
-    { path: '/msg', component:Message}
+    { path: '/msg', component:Message},
+    { path: '/list', component:List}
 ];
 
 const router = new VueRouter({

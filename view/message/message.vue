@@ -34,6 +34,13 @@
 </script>
 
 <style>
+    *{padding:0;margin:0;}
+    .DS{
+        display:block;
+        width:94%;
+        margin:0 auto;
+        border-top:1px solid #eee;
+    }
     .message {
         width:100%;
         height:720px;
