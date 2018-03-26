@@ -1,0 +1,128 @@
+<template>
+    <div>
+    <div class="cat"  >
+        <mt-header title="分类">
+        <router-link to="/" slot="left">
+            <mt-button icon="back"></mt-button>
+        </router-link>
+        </mt-header>
+
+        <div class="content">
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>手机</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>钱包</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>交通工具</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>照片</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>手机</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>钱包</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>交通工具</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>照片</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>手机</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>钱包</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>交通工具</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>照片</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>手机</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>钱包</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>交通工具</span>
+            </div>
+            <div class="item">
+                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <span>照片</span>
+            </div>
+        </div>
+    </div>
+
+    <bBannar selected="tab2" />
+    </div>
+
+</template>
+
+<script>
+    import bBannar  from '../common/bBannar.vue';
+    export default {
+         components:{
+            bBannar  
+        },
+        name: 'cat',
+        data:function(){
+          return {
+              selected: 100
+          };
+        }
+    }
+
+</script>
+
+<style>
+    .mint-header{
+        height:46px;
+    }
+    .cat .content{
+        width:100%;
+        height:100%;
+        display:inline-block;
+
+    }
+    .cat .content .item {
+        display:inline-block;
+        width:24%;
+        margin-top:20px;
+    }
+    .cat .content .item img{
+        width:55px;
+        height:55px;
+        text-align:center;
+        display:inline-block;
+        margin-left:18px;
+    }
+    .cat .content .item span{
+         display:inline-block;
+         margin-top:10px;
+         width:100%;
+         font-size:14px;
+         text-align:center;
+    }
+</style>

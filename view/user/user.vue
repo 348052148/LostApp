@@ -29,7 +29,7 @@
         </div>
         
     </div>
-    <bBannar />
+    <bBannar selected='tab4' />
     </div>
 </template>
 

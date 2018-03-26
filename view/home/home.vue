@@ -72,7 +72,7 @@
         </mt-tab-container-item>
         </mt-tab-container>
     </div>
-    <bBannar />
+    <bBannar selected='tab1' />
    
     </div>
 </template>

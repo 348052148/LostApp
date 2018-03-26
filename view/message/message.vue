@@ -12,7 +12,7 @@
         </div>
 
     </div>
-    <bBannar />
+    <bBannar selected='tab3' />
     </div>
 
 </template>

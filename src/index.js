@@ -19,12 +19,15 @@ import Message from './../view/message/message.vue'
 
 import List from './../view/list/list.vue'
 
+import Cat from './../view/cat/cat.vue'
+
 const routes = [
     { path: '/', component: Home },
     { path: '/detail', component:Detail},
     { path: '/user', component:User},
     { path: '/msg', component:Message},
-    { path: '/list', component:List}
+    { path: '/list', component:List},
+    { path: '/cat', component:Cat}
 ];
 
 const router = new VueRouter({
