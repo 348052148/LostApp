@@ -8,10 +8,12 @@
         </mt-header>
 
         <div class="content">
+            <router-link to="/list" >
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
                 <span>手机</span>
             </div>
+            </router-link>
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
                 <span>钱包</span>

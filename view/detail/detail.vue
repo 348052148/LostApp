@@ -1,7 +1,11 @@
 <template>
 
     <div class="detail" >
-        <mt-header fixed title="寻物启事"></mt-header>
+        <mt-header fixed title="寻物启事">
+            <router-link to="/" slot="left">
+                <mt-button icon="back"></mt-button>
+            </router-link>
+        </mt-header>
 
         <div class="m-info" >
             <div class="info">
@@ -21,7 +25,6 @@
                     <span class="Fill"></span>
                     <span class="chat"><mt-badge size="small" color="#ff9900" >归还</mt-badge> <mt-badge size="small" color="#ff9900" >联系他</mt-badge></span>
                 </div>
-                
             </div>
             <span class="DS"></span>
             <div class="content">
@@ -54,6 +57,9 @@
 </script>
 
 <style>
+    .mint-header{
+         height:46px;
+     }
     .detail {
         width:100%;
         height:100%;

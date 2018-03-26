@@ -25,6 +25,7 @@
   :infinite-scroll-disabled="loading"
   :infinite-scroll-distance="4" >
         <mt-tab-container-item id="1" >
+            <router-link to="/detail" >
             <div class="pingli" v-for="n in list"  >
 
                 <div class ="header"> 
@@ -46,6 +47,7 @@
 
                 <div class='meta'>枇杷山正解84号 <span>浏览20次</span></div>
             </div>
+            </router-link>
         </mt-tab-container-item>
         <mt-tab-container-item id="2" >
            <div class="pingli" v-for="n in list"  >
