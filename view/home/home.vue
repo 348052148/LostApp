@@ -120,13 +120,13 @@
 <style>
     .home{
         background:#EEE;
+        margin-bottom:80px;
     }
     .swipe {
         height:200px;
     
     }
     .mint-tab-container {
-        margin-bottom:80px;
     }
     .mint-tab-container-wrap {
         margin-top:3px;

@@ -11,8 +11,11 @@ import App from './../view/app.vue'
 
 import Home from './../view/home/home.vue'
 
+import Detail from './../view/detail/detail.vue'
+
 const routes = [
-    { path: '/', component: Home }
+    { path: '/', component: Home },
+    { path: '/detail', component:Detail}
 ];
 
 const router = new VueRouter({
