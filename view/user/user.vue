@@ -10,6 +10,7 @@
                 <div class="shortcut" >
                     <ul>
                         <li><img  src="../../assets/icon-order-0.png" width="40" height="40" /></li>
+                        <span class="Fill"></span>
                         <li><img  src="../../assets/icon-order-0.png" width="40" height="40" /></li>
                     </ul>
                 </div>
@@ -52,6 +53,11 @@
 <style>
     /**分割操作 */
     *{padding:0;margin:0;}
+    .Fill{
+        display:inline-block;
+        width:7rem;
+        height:100%;
+    }
     .DS{
         display:block;
         width:94%;
@@ -67,11 +73,11 @@
     .user .userinfo{
         width:100%;
         height:268px;
+        display:inline-block;
         background:url('../../assets/img-user-bg.png')
     }
     .user .userinfo .avater {
-        display:inline-block;
-        margin-left:150px;
+        margin:0 auto;
         margin-top:60px;
         width:120px;
         text-align:center;
@@ -85,19 +91,17 @@
     /**快捷 */
     .user .userinfo .shortcut{
         display:inline-block;
-        padding:20px;
         margin-top:20px;
         width:100%;
     }
     .user .userinfo .shortcut ul {
-        width:210px;
+        width:13rem;
         list-style-type:none; 
         list-style:none;
         margin:0 auto;
     }
     .user .userinfo .shortcut ul li{
         display:inline-block;
-        margin-right:60px;
     }
 
     /**功能列表 */
