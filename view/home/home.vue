@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="home"  >
+    <div class="home">
         <div class="swipe">
             <mt-swipe :auto="4000">
                 <mt-swipe-item  >
@@ -122,24 +122,24 @@
 <style>
     .home{
         background:#EEE;
-        margin-bottom:80px;
+        margin-bottom:5rem;
     }
     .swipe {
-        height:200px;
+        height:12.5rem;
     
     }
     .mint-tab-container {
     }
     .mint-tab-container-wrap {
-        margin-top:3px;
+        margin-top:0.18rem;
     }
     .pingli {
         display:inline-block;
         height:auto;
         width:100%;
         background-color:#FFF;
-        margin-bottom:3px;
-        padding:5px;
+        margin-bottom:0.18rem;
+        padding:0.3125rem;
     }
     .pingli img{
         display:inline-block;
@@ -147,7 +147,7 @@
 
     .pingli .header{
         width:100%;
-        height:40px;
+        height:0.16rem;
         display:inline-block;
     }
     .pingli .header .account{
@@ -156,33 +156,34 @@
         display:inline-block;
     }
     .pingli .header .account .name{
-        width:100px;
-        height:20px;
-        font-size:16px;
+        color:black;
+        width:6.25rem;
+        height:1.25rem;
+        font-size:1rem;
         display:inline-block;
     }
     .pingli .header .account .time{
-        width:100px;
-        height:20px;
-        font-size:8px;
+        width:6.25rem;
+        height:1.25rem;
+        font-size:0.2rem;
         color:#ccc;
         display:inline-block;
     }
 
     .pingli .header .type{
-        width:70px;
-        height:40px;
+        width:4.375rem;
+        height:2.5rem;
         display:inline-block;
         float:right;
     }
 
     .pingli .content{
-        padding:3px;
+        padding:0.18rem;
         width:100%;
-        line-height:20px;
-         font-size:14px;
-         height:40px;
-         
+        line-height:1.25rem;
+         font-size:0.875rem;
+         height:2.5rem;
+         color:black;
          display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
@@ -192,21 +193,21 @@
 
     .pingli .images{
         display:inline-block;
-        padding-left:5px;
-        padding-right:5px;
+        padding-left:0.3125rem;
+        padding-right:0.3125rem;
         width:100%;
     }
 
     .pingli .meta{
         display:inline-block;
         width:100%;
-        height:20px;
-        font-size:7px;
+        height:1.25rem;
+        font-size:0.4375rem;
         color:#ccc;
     }
     .pingli .meta span {
         display:inline-block;
         float:right;
-        margin-right:10px;
+        margin-right:0.625rem;
     }
 </style>

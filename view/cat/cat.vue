@@ -100,26 +100,26 @@
 
 <style>
     .mint-header{
-        height:46px;
+        height:2.875rem;
     }
     .cat .content{
         width:100%;
         height:100%;
         display:inline-block;
-        padding:0 20px;
+        padding:0 1.25rem;
 
     }
     .cat .content .item {
         display:inline-block;
         width:21%;
-        margin-top:20px;
+        margin-top:1.25rem;
     }
     .cat .content .item img{
-        width:55px;
-        height:55px;
+        width:3.4375rem;
+        height:3.4375rem;
         text-align:center;
         display:inline-block;
-        margin-left:15px;
+        margin-left:0.9375rem;
     }
     .cat .content .item span{
          display:inline-block;

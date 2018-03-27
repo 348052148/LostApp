@@ -58,7 +58,7 @@
 
 <style>
     .mint-header{
-         height:46px;
+         height:2.875rem;
      }
     .detail {
         width:100%;
@@ -69,13 +69,13 @@
     /**分割操作 */
     .DS{
         display:block;
-        border-top:3px solid #eee;
+        border-top:0.1875rem solid #eee;
     }
     /**填充操作 */
     .Fill{
         width:100%;
         display:inline-block;
-        height:30px;
+        height:1.875rem;
     }
     /**信息模块 */
     .detail .m-info{
@@ -85,12 +85,12 @@
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:34px;
-        padding-top:8px;
+        margin-top:2.125rem;
+        padding-top:0.2rem;
     }
     .detail .m-info .info .avater {
         display:inline-block;
-        width:60px;
+        width:3.75rem;
     }
     .detail .m-info .info .avater img{
         display:inline-block;
@@ -106,19 +106,19 @@
     }
     .detail .m-info .info .meta .address {
         width:100%;
-        font-size:8px;
+        font-size:0.2rem;
         color:#ccc;
          display:inline-block;
     }
     .detail .m-info .info .meta .time {
         width:100%;
-        font-size:8px;
+        font-size:0.2rem;
         color:#ccc;
          display:inline-block;
     }
     .detail .m-info .info .meta .amount{
         width:100%;
-        font-size:16px;
+        font-size:1rem;
         color:red;
          display:inline-block;
     }
@@ -130,14 +130,14 @@
     }
     .detail .m-info .info .tag .taginfo{
         display:inline-block;
-        width:40px;
+        width:2.5rem;
         float:right;
-        height:40px;
+        height:2.5rem;
     }
     .detail .m-info .info .tag .chat{
          display:inline-block;
         width:100%;
-        height:40px;
+        height:2.5rem;
     }
 
     /**内容 */
@@ -146,12 +146,12 @@
         display:inline-block;
     }
     .detail .m-info .content .text{
-        padding:10px;
-        line-height:26px;
-        font-size:15px;
+        padding:0.625rem;
+        line-height:1.625rem;
+        font-size:0.9375rem;
     }
     .detail .m-info .content .image{
-        padding:10px;
+        padding:0.625rem;
     }
     .detail .m-info .content .image img{
         width:100%;
@@ -161,14 +161,14 @@
         width:100%;
         background:#fff;
         display:inline-block;
-        margin-top:10px;
+        margin-top:0.625rem;
     }
     .detail .m-recommend h4{
-        font-size:14px;
-        line-height:25px;
+        font-size:0.875rem;
+        line-height:1.5625rem;
         color:#666;
-        text-indent:20px;
-        padding-bottom:8px;
+        text-indent:0.4rem;
+        padding-bottom:0.2rem;
         border-bottom:1px solid #eee;
     }
     .detail .m-recommend .content{
