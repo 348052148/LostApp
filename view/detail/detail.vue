@@ -98,7 +98,7 @@
     /* */
     .detail .m-info .info .meta {
          display:inline-block;
-         width:200px;
+         width:7.5rem;
     }
     .detail .m-info .info .meta .name {
         width:100%;
@@ -125,7 +125,7 @@
     /** */
     .detail .m-info .info .tag{
         display:inline-block;
-        width:120px;
+        width:7.5rem;
         float:right;
     }
     .detail .m-info .info .tag .taginfo{
