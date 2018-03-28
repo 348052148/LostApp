@@ -19,9 +19,12 @@
 
         <div class="func">
             <ul>
+                <router-link to="/publish">
                 <li><img src="../../assets/icon-publish.png" /><span>我的发布</span></li>
+                </router-link>
                 <span class="DS"></span>
                 <li><img src="../../assets/icon-price.png" /><span>我的交易</span></li>
+
                 <span class="DS"></span>
                 <li><img src="../../assets/icon-contact.png" /><span>联系客服</span></li>
                 <span class="DS"></span>

@@ -45,7 +45,7 @@
                     <img width="80" height="80" src="../../assets/b1.jpg">
                 </div>
 
-                <div class='meta'>枇杷山正解84号 <span>浏览20次</span></div>
+                <div class='meta'><img height="14" src="../../assets/icon-map1.png" />枇杷山正解84号 <span>浏览20次</span></div>
             </div>
             </router-link>
         </mt-tab-container-item>
@@ -204,6 +204,12 @@
         height:1.25rem;
         font-size:0.4375rem;
         color:#ccc;
+    }
+    .pingli .meta img{
+         display:inline-block;
+         margin-right:0.15rem;
+        vertical-align: middle;
+        border:0;
     }
     .pingli .meta span {
         display:inline-block;

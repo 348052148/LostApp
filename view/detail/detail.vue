@@ -15,7 +15,7 @@
                 </div>
                 <div class="meta" >
                     <span class="name">丢丢君 <mt-badge size="small" color="#888" >交通工具</mt-badge></span>
-                    <span class="address">渝北区线外城市花园</span>
+                    <span class="address"><img height="14" src="../../assets/icon-map1.png" />渝北区线外城市花园</span>
                     <span class="time">2018-03-26 12:12:01</span>
                     <span class="amount">￥12.0</span>
                 </div>
@@ -85,7 +85,7 @@
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:2.125rem;
+        margin-top:3.125rem;
         padding-top:0.2rem;
     }
     .detail .m-info .info .avater {
@@ -98,7 +98,7 @@
     /* */
     .detail .m-info .info .meta {
          display:inline-block;
-         width:7.5rem;
+         width:8rem;
     }
     .detail .m-info .info .meta .name {
         width:100%;
@@ -109,6 +109,12 @@
         font-size:0.2rem;
         color:#ccc;
          display:inline-block;
+    }
+    .detail .m-info .info .meta .address img{
+         display:inline-block;
+         margin-right:0.15rem;
+        vertical-align: middle;
+        border:0;
     }
     .detail .m-info .info .meta .time {
         width:100%;
@@ -132,6 +138,7 @@
         display:inline-block;
         width:2.5rem;
         float:right;
+        margin-right:0.3rem;
         height:2.5rem;
     }
     .detail .m-info .info .tag .chat{
