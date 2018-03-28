@@ -123,9 +123,9 @@
     }
     .cat .content .item span{
          display:inline-block;
-         margin-top:10px;
+         margin-top:0.625rem;
          width:100%;
-         font-size:14px;
+         font-size:0.875rem;
          text-align:center;
     }
 </style>

@@ -66,32 +66,32 @@
     }
     .user{
         width:100%;
-        height:720px;
+        height:45rem;
         background:#eee;
     }
     /**用户信息 */
     .user .userinfo{
         width:100%;
-        height:268px;
+        height:16.75rem;
         display:inline-block;
         background:url('../../assets/img-user-bg.png')
     }
     .user .userinfo .avater {
         margin:0 auto;
-        margin-top:60px;
-        width:120px;
+        margin-top:3.75rem;
+        width:7.5rem;
         text-align:center;
     }
     .user .userinfo .avater span{
         display:inline-block;
-        margin-top:5px;
+        margin-top:0.31rem;
         width:100%;
         text-align:center;
     }
     /**快捷 */
     .user .userinfo .shortcut{
         display:none;
-        margin-top:20px;
+        margin-top:1.25rem;
         width:100%;
     }
     .user .userinfo .shortcut ul {
@@ -114,12 +114,12 @@
     .user .func ul {
         list-style-type:none; 
         list-style:none;
-        margin-top:10px;
+        margin-top:0.62rem;
     }
      .user .func ul li{
          display:inline-block;
          width:100%;
-         height:40px;
+         height:2.5rem;
          color:#666;
      }
      .user .func ul li img{
@@ -127,10 +127,10 @@
          margin-left:12px;
      }
      .user .func ul li span{
-         padding-bottom:10px;
-         text-indent:20px;
+         padding-bottom:0.625rem;
+         text-indent:1.25rem;
          width:100%;
-         line-height:40px;
+         line-height:2.5rem;
          display:inline-block;
      }
 </style>
