@@ -19,13 +19,14 @@
 
         <div class="func">
             <ul>
-                <li><span>我的发布</span></li>
+                <li><img src="../../assets/icon-publish.png" /><span>我的发布</span></li>
                 <span class="DS"></span>
-                <li><span>我的交易</span></li>
+                <li><img src="../../assets/icon-price.png" /><span>我的交易</span></li>
                 <span class="DS"></span>
-                <li><span>联系客服</span></li>
+                <li><img src="../../assets/icon-contact.png" /><span>联系客服</span></li>
                 <span class="DS"></span>
-                <li><span>投诉建议</span></li>
+                <li><img src="../../assets/icon-money.png"/><span>我的钱包</span></li>
+                <span class="DS"></span>
             </ul>
         </div>
         
@@ -72,9 +73,9 @@
     /**用户信息 */
     .user .userinfo{
         width:100%;
-        height:16.75rem;
+        height:14rem;
         display:inline-block;
-        background:url('../../assets/img-user-bg.png')
+        background:url('../../assets/img-user-bg-new.png')
     }
     .user .userinfo .avater {
         margin:0 auto;
@@ -117,20 +118,25 @@
         margin-top:0.62rem;
     }
      .user .func ul li{
-         display:inline-block;
          width:100%;
          height:2.5rem;
          color:#666;
+         margin-left:0.9rem
      }
      .user .func ul li img{
          display:inline-block;
-         margin-left:12px;
+          width: 1.3rem;
+          height: 1.3rem;
+          margin-right:0.9rem;
+          line-height:2.5rem;
+          vertical-align: middle;
      }
      .user .func ul li span{
          padding-bottom:0.625rem;
          text-indent:1.25rem;
          width:100%;
          line-height:2.5rem;
-         display:inline-block;
+         font-size:0.9rem;
      }
+
 </style>

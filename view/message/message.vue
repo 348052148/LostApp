@@ -5,9 +5,9 @@
 
         <div class="func">
             <ul>
-                <li><span>丢丢时报</span></li>
+                <li><img src="../../assets/icon-times.png"/><span>丢丢时报</span></li>
                 <span class="DS"></span>
-                <li><span>系统消息</span></li>
+                <li><img src="../../assets/icon-mes.png"/><span>系统消息</span></li>
             </ul>
         </div>
 
@@ -37,7 +37,7 @@
     *{padding:0;margin:0;}
     .DS{
         display:block;
-        width:94%;
+        width:100%;
         margin:0 auto;
         border-top:1px solid #eee;
     }
@@ -59,23 +59,25 @@
         list-style:none;
     }
      .message .func ul li{
-         display:inline-block;
          width:100%;
          height:3.75rem;
          color:#666;
+         margin-left:0.5rem;
      }
      .message .func ul li img{
-         display:inline-block;
-         margin-left:0.75rem;
+           display:inline-block;
+           margin-right:0.9rem;
+           line-height:3.75rem;
+           vertical-align: middle;
      }
      .message .func ul li span{
-         padding-bottom:0.625rem;
-         text-indent:1.25rem;
-         width:100%;
-         line-height:3.75rem;
-         display:inline-block;
+          padding-bottom:0.2rem;
+          text-indent:1.25rem;
+          width:100%;
+          line-height:3.75rem;
      }
      .mint-header{
          height:2.88rem;
+         background:url('../../assets/title-bg.png')
      }
 </style>
