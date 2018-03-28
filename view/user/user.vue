@@ -19,9 +19,13 @@
 
         <div class="func">
             <ul>
+                <router-link to="/publish">
                 <li><span>我的发布</span></li>
+                </router-link>
                 <span class="DS"></span>
+                <router-link to="/publish">
                 <li><span>我的交易</span></li>
+                </router-link>
                 <span class="DS"></span>
                 <li><span>联系客服</span></li>
                 <span class="DS"></span>

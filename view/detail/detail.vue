@@ -85,7 +85,7 @@
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:2.125rem;
+        margin-top:3.125rem;
         padding-top:0.2rem;
     }
     .detail .m-info .info .avater {
@@ -132,6 +132,7 @@
         display:inline-block;
         width:2.5rem;
         float:right;
+        margin-right:0.3rem;
         height:2.5rem;
     }
     .detail .m-info .info .tag .chat{

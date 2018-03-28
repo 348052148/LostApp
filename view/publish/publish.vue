@@ -15,7 +15,10 @@
             <!-- tab-container -->
             <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
+
+            <router-link to="/detail">
                 <div class="m-publish">
+                
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
                         <div class="context" >
@@ -36,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+            </router-link>
                 <span class="DS"></span>
 
                 <div class="m-publish">
