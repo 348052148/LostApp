@@ -90,7 +90,7 @@
     }
     /**快捷 */
     .user .userinfo .shortcut{
-        display:inline-block;
+        display:none;
         margin-top:20px;
         width:100%;
     }
