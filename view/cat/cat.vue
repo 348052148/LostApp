@@ -10,21 +10,21 @@
         <div class="content">
             <router-link to="/list" >
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <img width="80" height="80" src="../../assets/class-phone.png" />
                 <span>手机</span>
             </div>
             </router-link>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <img width="80" height="80" src="../../assets/class-wallet.png" />
                 <span>钱包</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <img width="80" height="80" src="../../assets/class-traff.png" />
                 <span>交通工具</span>
             </div>
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>照片</span>
+                <span>背包/手提包</span>
             </div>
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />

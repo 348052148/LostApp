@@ -203,8 +203,6 @@
         width:100%;
         line-height:1.25rem;
          font-size:0.88rem;
-         height:2.5rem;
-         
          display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
