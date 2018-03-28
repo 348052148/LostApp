@@ -29,6 +29,8 @@ import Cat from './../view/cat/cat.vue'
 
 import New from './../view/new/new.vue'
 
+import Publish from './../view/publish/publish.vue'
+
 const routes = [
     { path: '/', component: Home },
     { path: '/detail', component:Detail},
@@ -36,7 +38,8 @@ const routes = [
     { path: '/msg', component:Message},
     { path: '/list', component:List},
     { path: '/cat', component:Cat},
-    { path: '/new', component:New}
+    { path: '/new', component:New},
+    { path: '/publish', component:Publish}
 ];
 
 const router = new VueRouter({
