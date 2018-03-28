@@ -40,7 +40,7 @@
                     <img width="80" height="80" src="../../assets/b1.jpg">
                 </div>
 
-                <div class='meta'>枇杷山正解84号 <span>浏览20次</span></div>
+                <div class='meta'><img height="14" src="../../assets/icon-map1.png" />枇杷山正解84号 <span>浏览20次</span></div>
             </div>
         </mt-tab-container-item>
         <mt-tab-container-item id="2" >
@@ -125,6 +125,7 @@
 
 <style>
     .list header{
+        height:2.875rem;
         background:#26a2ff;
     }
     .list header .mint-button{
@@ -223,7 +224,13 @@
         width:100%;
         height:2.5rem;
         font-size:0.44rem;
+        margin-left:0.2rem;
         color:#ccc;
+    }
+    .pingli .meta img{
+         display:inline-block;
+         margin-right:0.15rem;
+        vertical-align: middle;
     }
     .pingli .meta span {
         display:inline-block;
