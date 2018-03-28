@@ -24,7 +24,7 @@
             </div>
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>背包/手提包</span>
+                <span>背包/提包</span>
             </div>
             <div class="item">
                 <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
