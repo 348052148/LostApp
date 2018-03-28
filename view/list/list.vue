@@ -133,18 +133,18 @@
         box-shadow:none;
     }
     .list header .search{
-        height:40px;
+        height:2.5rem;
         display:inline-block;
 
     }
     .list header .search input{
-         height:26px;
+         height:1.625rem;
          border:0;
-         width:320px;
+         width:20rem;
          margin-left:1px;
-         border-radius:8px;
-         margin-top:5px;
-         line-height:41px;
+         border-radius:0.2rem;
+         margin-top:0.3125rem;
+         line-height:2.56rem;
         display:inline-block;
     }
 
@@ -152,15 +152,15 @@
     .mint-tab-container {
     }
     .mint-tab-container-wrap {
-        margin-top:3px;
+        margin-top:0.19rem;
     }
     .pingli {
         display:inline-block;
         height:auto;
         width:100%;
         background-color:#FFF;
-        margin-bottom:3px;
-        padding:5px;
+        margin-bottom:0.19rem;
+        padding:0.31rem;
     }
     .pingli img{
         display:inline-block;
@@ -172,37 +172,37 @@
         display:inline-block;
     }
     .pingli .header .account{
-        width:100px;
-        height:40px;
+        width:6.25rem;
+        height:2.5rem;
         display:inline-block;
     }
     .pingli .header .account .name{
-        width:100px;
-        height:20px;
-        font-size:16px;
+        width:6.25rem;
+        height:1.25rem;
+        font-size:1rem;
         display:inline-block;
     }
     .pingli .header .account .time{
-        width:100px;
-        height:20px;
-        font-size:8px;
+        width:6.25rem;
+        height:1.25rem;
+        font-size:0.2rem;
         color:#ccc;
         display:inline-block;
     }
 
     .pingli .header .type{
-        width:70px;
-        height:40px;
+        width:4.38rem;
+        height:2.5rem;
         display:inline-block;
         float:right;
     }
 
     .pingli .content{
-        padding:3px;
+        padding:0.19rem;
         width:100%;
-        line-height:20px;
-         font-size:14px;
-         height:40px;
+        line-height:1.25rem;
+         font-size:0.88rem;
+         height:2.5rem;
          
          display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -213,21 +213,21 @@
 
     .pingli .images{
         display:inline-block;
-        padding-left:5px;
-        padding-right:5px;
+        padding-left:0.31rem;
+        padding-right:0.31rem;
         width:100%;
     }
 
     .pingli .meta{
         display:inline-block;
         width:100%;
-        height:20px;
-        font-size:7px;
+        height:2.5rem;
+        font-size:0.44rem;
         color:#ccc;
     }
     .pingli .meta span {
         display:inline-block;
         float:right;
-        margin-right:10px;
+        margin-right:0.625rem;
     }
 </style>

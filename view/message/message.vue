@@ -43,13 +43,13 @@
     }
     .message {
         width:100%;
-        height:720px;
+        height:45rem;
         background:#eee;
     }
     /**功能列表 */
     .message .func{
         width:100%;
-        margin-top:42px;
+        margin-top:2.63rem;
         background:#fff;
         display:inline-block;
 
@@ -61,21 +61,21 @@
      .message .func ul li{
          display:inline-block;
          width:100%;
-         height:60px;
+         height:3.75rem;
          color:#666;
      }
      .message .func ul li img{
          display:inline-block;
-         margin-left:12px;
+         margin-left:0.75rem;
      }
      .message .func ul li span{
-         padding-bottom:10px;
-         text-indent:20px;
+         padding-bottom:0.625rem;
+         text-indent:1.25rem;
          width:100%;
-         line-height:60px;
+         line-height:3.75rem;
          display:inline-block;
      }
      .mint-header{
-         height:46px;
+         height:2.88rem;
      }
 </style>
