@@ -114,6 +114,7 @@
          display:inline-block;
          margin-right:0.15rem;
         vertical-align: middle;
+        border:0;
     }
     .detail .m-info .info .meta .time {
         width:100%;

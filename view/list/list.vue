@@ -231,6 +231,7 @@
          display:inline-block;
          margin-right:0.15rem;
         vertical-align: middle;
+        border:0;
     }
     .pingli .meta span {
         display:inline-block;

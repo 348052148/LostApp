@@ -27,7 +27,7 @@
                             <mt-badge size="small" color="red">丢</mt-badge>
                             </div>
                             <span class="text"> 今天在两路口轻轨站，丢失一张公交卡 </span>
-                            <span class="address"> 两路口 </span>
+                            <span class="address"><img height="14" src="../../assets/icon-map1.png" /> 两路口 </span>
                             <span class="amount"> ￥0.00 </span>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <mt-badge size="small" color="red">丢</mt-badge>
                             </div>
                             <span class="text"> 今天在两路口轻轨站，丢失一张公交卡 </span>
-                            <span class="address"> 两路口 </span>
+                            <span class="address"><img height="14" src="../../assets/icon-map1.png" /> 两路口 </span>
                             <span class="amount"> ￥0.00 </span>
                         </div>
                     </div>
@@ -145,6 +145,12 @@
         width:100%;
         font-size:8px;
         color:#ccc;
+    }
+    .m-publish .info .context img{
+         display:inline-block;
+         margin-right:0.15rem;
+         border:0;
+        vertical-align: middle;
     }
     .m-publish .info .context .amount{
         display:inline-block;
