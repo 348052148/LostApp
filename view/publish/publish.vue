@@ -121,7 +121,7 @@
         background:#EEE;
         display:inline-block;
         border:1px solid #eee;
-        margin-top:2px;
+        margin-left:0.2rem;
     }
     .m-publish .info .context{
         display:inline-block;
