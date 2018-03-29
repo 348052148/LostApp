@@ -23,7 +23,7 @@
         <!-- tab-container -->
         <mt-tab-container v-model="selected" v-infinite-scroll="loadMore"
   :infinite-scroll-disabled="loading"
-  :infinite-scroll-distance="4" >
+  :infinite-scroll-distance="10" >
         <mt-tab-container-item id="1" >
             <router-link to="/detail" >
             <div class="pingli" v-for="n in list"  >
