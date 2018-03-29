@@ -14,23 +14,23 @@
                     <span class="Fill"></span>
                 </div>
                 <div class="meta" >
-                    <span class="name">丢丢君 <mt-badge size="small" color="#888" >交通工具</mt-badge></span>
-                    <span class="address"><img height="14" src="../../assets/icon-map1.png" />渝北区线外城市花园</span>
-                    <span class="time">2018-03-26 12:12:01</span>
-                    <span class="amount">￥12.0</span>
+                    <span class="name">{{post.publish.nickname}} <mt-badge size="small" color="#888" >{{post.type}}</mt-badge></span>
+                    <span class="address"><img height="14" src="../../assets/icon-map1.png" />{{post.address}}</span>
+                    <span class="time">{{post.publish_time}}</span>
+                    <span class="amount">￥{{post.amount}}</span>
                 </div>
 
                 <div class="tag">
-                    <span class="taginfo"><mt-badge size="large" color="red" >丢</mt-badge></span>
+                    <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
                     <span class="chat"><mt-badge size="small" color="#ff9900" >归还</mt-badge> <mt-badge size="small" color="#ff9900" >联系他</mt-badge></span>
                 </div>
             </div>
             <span class="DS"></span>
             <div class="content">
-                <div class="text">早上在渝北区线外城市花园711吃面包，不慎遗落心爱的马克杯，望有看到者联系。电话18523922708</div>
+                <div class="text">{{post.content}}</div>
                 <div class="image">
-                    <img src="../../assets/b2.jpg" />
+                    <img v-for="attachment in post.attachment" :src="attachment" />
                 </div>
             </div>
         </div>
@@ -44,13 +44,19 @@
 </template>
 
 <script>
-
+    import Api from '../../src/api.js'
     export default {
         name: 'detail',
         data:function(){
           return {
-              selected: 100
+              post:{}
           };
+        },
+        created(){
+            var api = new Api();
+            api.request({api:'Post/posts/123',data:{}},(res)=>{
+                this.post = res.data;
+            });
         }
     }
 
