@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="content"> 本人丢失一张公交卡，</br>在两路口轻轨站人丢失一张公交卡 </div>
+                <div class="content"> 本人丢失一张公交卡，在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 </div>
                 <div class="images" > 
                     <img width="80" height="80" src="../../assets/b1.jpg">
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="content"> 本人丢失一张公交卡，</br>在两路口轻轨站人丢失一张公交卡 </div>
+                <div class="content"> 本人丢失一张公交卡，在两路口轻轨站人丢失一张公交卡 </div>
                 <div class="images" > 
                     <img width="80" height="80" src="../../assets/b1.jpg">
                 </div>
@@ -178,11 +178,10 @@
     }
 
     .pingli .content{
-        padding:0.18rem;
-        width:100%;
-        line-height:1.25rem;
-         font-size:0.875rem;
-         height:2.5rem;
+        padding-top:0.4rem;
+        padding-left:0.3rem;
+        width:95%;
+         font-size:0.8rem;
          color:black;
          display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -193,8 +192,7 @@
 
     .pingli .images{
         display:inline-block;
-        padding-left:0.3125rem;
-        padding-right:0.3125rem;
+        padding: 0.4rem 0.32rem;
         width:100%;
     }
 
@@ -215,5 +213,10 @@
         display:inline-block;
         float:right;
         margin-right:0.625rem;
+    }
+    .mint-navbar .mint-tab-item.is-selected {
+        border-bottom: 3px solid #43c3f2;
+        color: #43c3f2;
+        margin-bottom: -3px;
     }
 </style>

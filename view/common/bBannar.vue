@@ -72,4 +72,7 @@
     .mint-tabbar{
         position:fixed;
     }
+    .mint-tabbar > .mint-tab-item.is-selected {
+        color: #43c3f2;
+    }
 </style>
