@@ -3,15 +3,10 @@
     <div class="home">
         <div class="swipe">
             <mt-swipe :auto="4000">
-                <mt-swipe-item  >
-                    <img src="../../assets/b1.jpg" />
+                <mt-swipe-item v-for="swipe in model.swipe"  >
+                    <img :src="swipe.pic" />
                 </mt-swipe-item>
-                <mt-swipe-item  >
-                    <img src="../../assets/b2.jpg" />
-                </mt-swipe-item>
-                <mt-swipe-item  >
-                    <img src="../../assets/b3.jpg" />
-                </mt-swipe-item>
+            
             </mt-swipe>
         </div>
 
@@ -21,59 +16,64 @@
         </mt-navbar>
 
         <!-- tab-container -->
-        <mt-tab-container v-model="selected" v-infinite-scroll="loadMore"
-  :infinite-scroll-disabled="loading"
-  :infinite-scroll-distance="10" >
-        <mt-tab-container-item id="1" >
-            <router-link to="/detail" >
-            <div class="pingli" v-for="n in list"  >
-
+        <mt-tab-container v-model="selected"   >
+        
+        <mt-tab-container-item id="1"  >
+            
+            <div class="pingli" v-for="block in LF"  >
+            <router-link to="/detail"   >
                 <div class ="header"> 
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="40" height="40" />
 
                     <div class='account' >
-                        <span class="name" >丢丢君</span><span class="time" >1小时前</span>
+                        <span class="name" >{{block.publish.nickname}}</span><span class="time" >{{block.publish_time}}</span>
                     </div>
 
                     <div class="type">
-                        <mt-badge size="small" color="#888" >交通工具</mt-badge>
+                        <mt-badge size="small" color="#888" >{{block.type}}</mt-badge>
                     </div>
                 </div>
 
-                <div class="content"> 本人丢失一张公交卡，在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 在两路口轻轨站人丢失一张公交卡 </div>
+                <div class="content"> {{block.content}} </div>
                 <div class="images" > 
-                    <img width="80" height="80" src="../../assets/b1.jpg">
+                    <img width="80" v-for="attachment in block.attachment" height="80" :src="attachment">
                 </div>
 
-                <div class='meta'><img height="14" src="../../assets/icon-map1.png" />枇杷山正解84号 <span>浏览20次</span></div>
-            </div>
+                <div class='meta'><img height="14" src="../../assets/icon-map1.png" />{{block.address}} <span>浏览{{block.looks}}次</span></div>
             </router-link>
+            </div>
+            <infinite-loading @infinite="loadLFMore"></infinite-loading>
+            
+           
         </mt-tab-container-item>
-        <mt-tab-container-item id="2" >
-           <div class="pingli" v-for="n in list"  >
+        <mt-tab-container-item id="2"  >
+           
+           <div class="pingli" v-for="block in LT"  >
 
                 <div class ="header"> 
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="40" height="40" />
 
                     <div class='account' >
-                        <span class="name" >丢丢君</span><span class="time" >1小时前</span>
+                        <span class="name" >{{block.publish.nickname}}</span><span class="time" >{{block.publish_time}}</span>
                     </div>
 
                     <div class="type">
-                        <mt-badge size="small" color="#888" >交通工具</mt-badge>
+                        <mt-badge size="small" color="#888" >{{block.type}}</mt-badge>
                     </div>
                 </div>
 
-                <div class="content"> 本人丢失一张公交卡，在两路口轻轨站人丢失一张公交卡 </div>
+                <div class="content"> {{block.content}} </div>
                 <div class="images" > 
-                    <img width="80" height="80" src="../../assets/b1.jpg">
+                    <img width="80" v-for="attachment in block.attachment" height="80" :src="attachment">
                 </div>
 
-                <div class='meta'>枇杷山正解84号 <span>浏览20次</span></div>
+                <div class='meta'><img height="14" src="../../assets/icon-map1.png" />{{block.address}} <span>浏览{{block.looks}}次</span></div>
             </div>
+            <infinite-loading @infinite="loadLTMore"></infinite-loading>
         </mt-tab-container-item>
         </mt-tab-container>
     </div>
+
     <bBannar selected='tab1' />
    
     </div>
@@ -81,38 +81,55 @@
 
 <script>
     import bBannar  from '../common/bBannar.vue';
+    import Api from '../../src/api.js'
+    import InfiniteLoading from 'vue-infinite-loading';
+
     export default {
         components:{
-            bBannar  
+            bBannar,
+            InfiniteLoading  
         },
         name: 'home',
         data:function(){
           return {
               searchVal:'123',
               selected: '1',
-              loading:true,
-              list:[1,2,3,4]
+              loadingLF:true,
+              loadingLT:true,
+              list:[1,2,3,4],
+              model:[],
+              LF:[],
+              LT:[],
+              allLoaded:false
           };
         },
+        created(){
+            var api = new Api();
+                api.request({api:'Index/index',data:{}},(res)=>{
+                    this.model = res.data;
+                    this.loadLTMore();
+                });
+                
+        },
         methods:{
-            loadMore() {
-                this.loading = true;
-                setTimeout(() => {
-                    let last = this.list[this.list.length - 1];
-                    for (let i = 1; i <= 4; i++) {
-                    this.list.push(last + i);
+            loadLFMore($state) {
+                var api = new Api();
+                api.request({api:'Post/posts',data:{}},(res)=>{
+                    for(var i=0;i<res.data.length;i++){
+                        this.LF.push(res.data[i]);
+                        $state.loaded();
                     }
-                    this.loading = false;
-                }, 2500);
+                });
+                
             },
-            loadBottom(){
-                console.log('123');
-                setTimeout(() => {
-                    let last = this.list[this.list.length - 1];
-                    for (let i = 1; i <= 4; i++) {
-                    this.list.push(last + i);
+            loadLTMore($state){
+                var api = new Api();
+                api.request({api:'Post/posts',data:{}},(res)=>{
+                    for(var i=0;i<res.data.length;i++){
+                        this.LT.push(res.data[i]);
                     }
-                }, 2500);
+                    $state.loaded();
+                });
             }
         }
     }
@@ -120,6 +137,9 @@
 </script>
 
 <style>
+    a{
+        text-decoration:none;
+    }
     .home{
         background:#EEE;
         margin-bottom:5rem;
