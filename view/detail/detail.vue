@@ -54,7 +54,7 @@
         },
         created(){
             var api = new Api();
-            api.request({api:'Post/posts/123',data:{}},(res)=>{
+            api.request({api:'posts/123',data:{}},(res)=>{
                 this.post = res.data;
             });
         }
