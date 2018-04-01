@@ -7,7 +7,7 @@ class Api {
     request(obj,callback){
         var $ = require('jQuery');
         $.ajax({
-            url:"http://sys.ismbao.com.cn/"+obj.api,
+            url:"http://sys.ismbao.com.cn/"+obj.api.replace('.','/'),
             data:obj.data,
             timeout:1000,
             type:'GET',
