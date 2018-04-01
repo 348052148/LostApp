@@ -105,16 +105,20 @@
         },
         created(){
             var api = new Api();
-                api.request({api:'Index/index',data:{}},(res)=>{
+                api.request({api:'index',data:{}},(res)=>{
                     this.model = res.data;
                     this.loadLTMore();
                 });
                 
+
+                api.request({api:'navs',data:{}},(res)=>{
+                    
+                });
         },
         methods:{
             loadLFMore($state) {
                 var api = new Api();
-                api.request({api:'Post/posts',data:{}},(res)=>{
+                api.request({api:'posts',data:{}},(res)=>{
                     for(var i=0;i<res.data.length;i++){
                         this.LF.push(res.data[i]);
                         $state.loaded();
@@ -124,7 +128,7 @@
             },
             loadLTMore($state){
                 var api = new Api();
-                api.request({api:'Post/posts',data:{}},(res)=>{
+                api.request({api:'posts',data:{}},(res)=>{
                     for(var i=0;i<res.data.length;i++){
                         this.LT.push(res.data[i]);
                     }

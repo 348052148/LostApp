@@ -9,16 +9,16 @@
 
         <div class="form">
             <mt-cell title="发布类型" @click.native="popup" is-link >
-                <span >{{displayVal}}</span>
+                <span >{{publish_type}}</span>
             </mt-cell>
-            <bPopupSelect @change="getVal" @close="closeVal" :popupVisible="pvisible" :classSlots="classSlots" />
+            <bPopupSelect @change="getVal" @close="closeVal" :popupVisible="pvisible" :classSlots="publish_type_arr" />
 
 
             <mt-field label="丢失时间" type="date" placeholder="" v-model="username"></mt-field>
             <mt-cell title="物品类型" @click.native="popup1" is-link >
-                <span >{{displayVal1}}</span>
+                <span >{{entity_class}}</span>
             </mt-cell>
-            <bPopupSelect @change="getVal1"  @close="closeVal1" :popupVisible="pvisible1" :classSlots="classSlots" />
+            <bPopupSelect @change="getVal1"  @close="closeVal1" :popupVisible="pvisible1" :classSlots="entity_class_arr" />
       
 
             <mt-field label="选择地点" placeholder="" v-model="username"></mt-field>
@@ -57,9 +57,18 @@
               pvisible1:false,
 
               /**弹出选择 */
-              displayVal:'',
-              displayVal1:'',
-              classSlots: [
+              publish_type:'',
+              entity_class:'',
+              /**发布类型 */
+              publish_type_arr : [
+                  {
+                    flex: 1,
+                    values: ['失物招领', '寻物启事'],
+                    className: 'slot1',
+                    textAlign: 'center'
+                }
+              ],
+              entity_class_arr: [
                 {
                 flex: 1,
                 values: ['钱包', '手机', '银行卡', '交通卡', '物体', '钱'],
@@ -81,11 +90,11 @@
             },
             getVal(data){
                 this.pvisible = false;
-                this.displayVal = data.data;
+                this.publish_type = data.data;
             },
             getVal1(data){
                 this.pvisible1 = false;
-                this.displayVal1 = data.data;
+                this.entity_class = data.data;
             },
             popup(){
                 this.pvisible = true;
