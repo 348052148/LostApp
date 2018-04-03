@@ -31,6 +31,10 @@ import New from './../view/new/new.vue'
 
 import Publish from './../view/publish/publish.vue'
 
+import Login from './../view/login/login.vue'
+
+import Register from './../view/register/register.vue'
+
 const routes = [
     { path: '/', component: Home },
     { path: '/detail', component:Detail},
@@ -39,7 +43,9 @@ const routes = [
     { path: '/list', component:List},
     { path: '/cat', component:Cat},
     { path: '/new', component:New},
-    { path: '/publish', component:Publish}
+    { path: '/publish', component:Publish},
+    { path: '/login', component:Login},
+    { path: '/register', component:Register}
 ];
 
 const router = new VueRouter({
