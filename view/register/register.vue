@@ -10,15 +10,15 @@
 
         </div>
         <div class="register-form">
-            <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="phone"></mt-field>
+            <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="register.phone"></mt-field>
             <span class="DS"></span>
-            <mt-field label="验证码" placeholder="请输入验证码" type="url" v-model="website"><a >获取验证码</a></mt-field>
+            <mt-field label="验证码" placeholder="请输入验证码" type="url" v-model="register.vcode"><a >获取验证码</a></mt-field>
             <span class="DS"></span>
-            <mt-field label="密码" placeholder="请输入6至16位密码" type="number" v-model="number"></mt-field>
+            <mt-field label="密码" placeholder="请输入6至16位密码" type="text" v-model="register.passwd"></mt-field>
             <span class="DS"></span>
 
             <div class="register-method">
-                <mt-button class='submit' type="primary">注册</mt-button>
+                <mt-button class='submit' @click="submit" type="primary">注册</mt-button>
                 <div class="func">
                     <router-link to="/help">登录及表示你同意《拾丢丢服务条款》</router-link>
                 </div>
@@ -29,13 +29,51 @@
 </template>
 
 <script>
-
+    import Api from '../../src/api.js'
+    import { Toast } from 'mint-ui';
     export default {
         name: 'app',
         data:function(){
           return {
-              selected: 100
+              register: {
+                  m:'POST'
+              }
           };
+        },
+        methods:{
+            submit(){
+                console.log(123);
+                var api = new Api();
+                api.request({api:'register',data:this.register},(res)=>{
+                    console.log(res);
+                    if(res.code == 0){
+                        api.request({api:'login',data:this.register},(res)=>{
+                            if(res.code == 0){
+                                Toast({
+                                message: res.message,
+                                position: 'middle',
+                                duration: 1000
+                                });
+                                this.$router.push({ path: '/' });
+                            }
+                            if(res.code == -1){
+                                Toast({
+                                message: res.message,
+                                position: 'middle',
+                                duration: 1000
+                                });
+                            }
+                        });
+                    }
+                    if(res.code == -1){
+                        Toast({
+                        message: res.message,
+                        position: 'middle',
+                        duration: 1000
+                        });
+                    }
+                });
+            }
         }
     }
 
@@ -67,6 +105,9 @@
      }
      .register .register-form a{
          font-size:10px;
+     }
+     .register .register-form .mint-cell {
+        margin-top:10px;
      }
      .register .register-form .mint-cell:last-child{
         background:none;
