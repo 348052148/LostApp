@@ -53,8 +53,7 @@
           };
         },
         created(){
-            var api = new Api();
-            api.request({api:'posts/123',data:{}},(res)=>{
+            Api.request({api:'posts/'+this.$route.params.id,data:{}},(res)=>{
                 this.post = res.data;
             });
         }
@@ -63,8 +62,10 @@
 </script>
 
 <style>
+    *{padding:0;margin:0;}
     .mint-header{
-         height:2.875rem;
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
      }
     .detail {
         width:100%;

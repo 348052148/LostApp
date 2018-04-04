@@ -42,8 +42,7 @@
         },
         methods:{
             submit(){
-                var api = new Api();
-                api.request({api:'login',data:this.login},(res)=>{
+                Api.request({api:'login',data:this.login},(res)=>{
                     if(res.code == 0){
                         Toast({
                         message: res.message,
@@ -51,6 +50,7 @@
                         duration: 1000
                         });
                         this.$router.push({ path: '/' });
+                        Api.setStorage('user',res.data);
                     }
                     if(res.code == -1){
                         Toast({
@@ -77,6 +77,10 @@
     .mint-header{
          height:2.875rem;
          background:rgba(255,00,255,0)
+     }
+     .mint-header{
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
      }
     .login .login-from {
         width:80%;

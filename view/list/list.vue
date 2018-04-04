@@ -124,14 +124,20 @@
 </script>
 
 <style>
+    *{padding:0;margin:0;}
+    .mint-header{
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
+     }
     .list header{
         height:2.875rem;
-        background:#26a2ff;
+       background:url('../../assets/title-bg.png')
     }
     .list header .mint-button{
         background:#26a2ff;
         border:0;
         box-shadow:none;
+        background:rgba(255,00,255,0)
     }
     .list header .search{
         height:2.5rem;

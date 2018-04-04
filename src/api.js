@@ -4,8 +4,9 @@ class Api {
 
     }
 
-    request(obj,callback){
+    static request(obj,callback){
         var $ = require('jQuery');
+        obj.data.sid = this.getSid();
         $.ajax({
             url:"http://sys.ismbao.com.cn/"+obj.api.replace('.','/'),
             data:obj.data,
@@ -21,6 +22,29 @@ class Api {
             }
         })
     }
+
+    static setStorage(key,val){
+        localStorage.setItem(key,JSON.stringify(val));
+    }
+
+    static getStorage(key){
+        return JSON.parse(localStorage.getItem(key));
+    }
+
+    static clearStorage(){
+        localStorage.clear();
+    }
+
+    static getSid(){
+        return localStorage.getItem('sid');
+    }
+    
+    static setSid(){
+        this.request({api:'sids',data:{}},(res)=>{
+            localStorage.setItem('sid',res.data.sid);
+        });
+    }
+
 }
 
 export default Api;

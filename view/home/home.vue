@@ -21,7 +21,7 @@
         <mt-tab-container-item id="1"  >
             
             <div class="pingli" v-for="block in LF"  >
-            <router-link to="/detail"   >
+            <router-link :to="'/detail/'+block.id"   >
                 <div class ="header"> 
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="40" height="40" />
 
@@ -49,7 +49,7 @@
         <mt-tab-container-item id="2"  >
            
            <div class="pingli" v-for="block in LT"  >
-
+                <router-link :to="'/detail/'+block.id"   >
                 <div class ="header"> 
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="40" height="40" />
 
@@ -68,6 +68,7 @@
                 </div>
 
                 <div class='meta'><img height="14" src="../../assets/icon-map1.png" />{{block.address}} <span>浏览{{block.looks}}次</span></div>
+                </router-link>
             </div>
             <infinite-loading @infinite="loadLTMore"></infinite-loading>
         </mt-tab-container-item>
@@ -100,39 +101,52 @@
               model:[],
               LF:[],
               LT:[],
+              LTpage:1,
+              LFpage:1,
               allLoaded:false
           };
         },
         created(){
-            var api = new Api();
-                api.request({api:'index',data:{}},(res)=>{
+                Api.request({api:'index',data:{}},(res)=>{
                     this.model = res.data;
                     this.loadLTMore();
                 });
                 
 
-                api.request({api:'navs',data:{}},(res)=>{
+                Api.request({api:'navs',data:{}},(res)=>{
                     
                 });
         },
         methods:{
             loadLFMore($state) {
-                var api = new Api();
-                api.request({api:'posts',data:{}},(res)=>{
-                    for(var i=0;i<res.data.length;i++){
-                        this.LF.push(res.data[i]);
+                if($state)
                         $state.loaded();
+                Api.request({api:'posts',data:{publish_type:2,page:this.LFpage}},(res)=>{
+                    if(res.code == 0){
+                        for(var i=0;i<res.data.length;i++){
+                            this.LF.push(res.data[i]);
+                        }
+                        this.LFpage++;
+                    }else{
+                        $state.complete();
                     }
+                    
                 });
                 
             },
             loadLTMore($state){
-                var api = new Api();
-                api.request({api:'posts',data:{}},(res)=>{
-                    for(var i=0;i<res.data.length;i++){
-                        this.LT.push(res.data[i]);
+                if($state)
+                        $state.loaded();
+                Api.request({api:'posts',data:{publish_type:1,page:this.LTpage}},(res)=>{
+                    if(res.code == 0){
+                        for(var i=0;i<res.data.length;i++){
+                            this.LT.push(res.data[i]);
+                        }
+                        this.LTpage++;
+                    }else{
+                        $state.complete();
                     }
-                    $state.loaded();
+                    
                 });
             }
         }
@@ -141,6 +155,7 @@
 </script>
 
 <style>
+    *{padding:0;margin:0;}
     a{
         text-decoration:none;
     }

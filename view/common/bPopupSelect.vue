@@ -6,8 +6,8 @@
                 v-model="popupVisible"
                 position="bottom">
                 <div class="status">
-                    <mt-button class="cancel" size="small" @click.native="popupClose" type="danger">取消</mt-button>
-                    <mt-button class="sure" size="small" @click.native="popupSure"  type="primary">确认</mt-button>
+                    <a class="cancel" size="small" @click="popupClose" type="danger">取消</a>
+                    <a class="sure" size="small" @click="popupSure"  type="primary">确认</a>
                 </div>
                 <mt-picker :slots="classSlots" @change="onValuesChange"></mt-picker>
         </mt-popup>

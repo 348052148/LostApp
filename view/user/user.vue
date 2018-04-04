@@ -2,10 +2,12 @@
     <div>
     <div class="user"  >
         <div class="userinfo">
+                <router-link :to="user.tourl">
                 <div  class="avater" >
                     <img style="border-radius:40px;" src="../../assets/avater.jpg" width="80" height="80" />
-                    <span>丢丢君</span>
+                    <span>{{user.nickname}}</span>
                 </div>
+                </router-link>
                 
                 <div class="shortcut" >
                     <ul>
@@ -39,6 +41,7 @@
 </template>
 
 <script>
+    import Api from '../../src/api.js'
     import bBannar  from '../common/bBannar.vue';
     export default {
         components:{
@@ -47,8 +50,15 @@
         name: 'app',
         data:function(){
           return {
-              selected: 100
+              user:{nickname:'未登录',tourl:"/login"}
           };
+        },
+        created(){
+            let user = Api.getStorage('user');
+            if(user) {
+                this.user = user;
+                this.user.tourl = '/person/'+this.user.id;
+            }
         }
     }
 
@@ -57,6 +67,9 @@
 <style>
     /**分割操作 */
     *{padding:0;margin:0;}
+    a{
+        color:#333;
+    }
     .Fill{
         display:inline-block;
         width:7rem;

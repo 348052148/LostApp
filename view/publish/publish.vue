@@ -103,8 +103,9 @@
         border-top:1px solid #eee;
     }
      .mint-header{
-        height:2.875rem;
-    }
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
+     }
     .m-publish{
         display:inline-block;
         width:100%;

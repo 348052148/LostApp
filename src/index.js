@@ -37,11 +37,13 @@ import Register from './../view/register/register.vue'
 
 import Api from './api.js'
 
-setSid();
+Api.clearStorage();
+
+Api.setSid();
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/detail', component:Detail},
+    { path: '/detail/:id', component:Detail},
     { path: '/user', component:User},
     { path: '/msg', component:Message},
     { path: '/list', component:List},
@@ -62,14 +64,3 @@ new Vue({
     template: '<App/>',
     components: { App },
 });
-
-function getSid(){
-    return localStorage.getItem('sid');
-}
-
-function setSid(){
-    var api = new Api();
-    api.request({api:'sids',data:{}},(res)=>{
-        localStorage.setItem('sid',res.data.sid);
-    });
-}

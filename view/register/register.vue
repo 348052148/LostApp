@@ -43,17 +43,17 @@
         methods:{
             submit(){
                 console.log(123);
-                var api = new Api();
-                api.request({api:'register',data:this.register},(res)=>{
+                Api.request({api:'register',data:this.register},(res)=>{
                     console.log(res);
                     if(res.code == 0){
-                        api.request({api:'login',data:this.register},(res)=>{
+                        Api.request({api:'login',data:this.register},(res)=>{
                             if(res.code == 0){
                                 Toast({
                                 message: res.message,
                                 position: 'middle',
                                 duration: 1000
                                 });
+                                Api.setStorage('user',res.data);
                                 this.$router.push({ path: '/' });
                             }
                             if(res.code == -1){
@@ -88,7 +88,8 @@
         border-top:1px solid #eee;
     }
     .mint-header{
-         height:2.875rem;
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
      }
      .register {
 
