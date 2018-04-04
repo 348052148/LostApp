@@ -9,16 +9,16 @@
 
         <div class="form">
             <mt-cell title="发布类型" @click.native="popup" is-link >
-                <span >{{post.publish_type}}</span>
+                <span >{{display_publish}}</span>
             </mt-cell>
-            <bPopupSelect @change="getVal" @close="closeVal" :popupVisible="pvisible" :classSlots="publish_type_arr" />
+            <bPopupSelect @change="getVal" @close="closeVal" :popupVisible="pvisible" :values="publish_type_arr" />
 
             <span class="DS"></span>
 
             <mt-cell title="物品类型" @click.native="popup1" is-link >
-                <span >{{post.entity_class}}</span>
+                <span >{{display_entity}}</span>
             </mt-cell>
-            <bPopupSelect @change="getVal1"  @close="closeVal1" :popupVisible="pvisible1" :classSlots="entity_class_arr" />
+            <bPopupSelect @change="getVal1"  @close="closeVal1" :popupVisible="pvisible1" :values="entity_class_arr" />
 
             <span class="DS"></span>
 
@@ -70,6 +70,9 @@
               pvisible:false,
               pvisible1:false,
 
+              display_publish:'',
+              display_entity:'',
+
               post:{},
 
               user:{},
@@ -79,21 +82,8 @@
               entity_class:'',
               /**发布类型 */
               publish_type_arr : [
-                  {
-                    flex: 1,
-                    values: ['失物招领', '寻物启事'],
-                    className: 'slot1',
-                    textAlign: 'center'
-                }
               ],
-              entity_class_arr: [
-                {
-                flex: 1,
-                values: ['钱包', '手机', '银行卡', '交通卡', '物体', '钱'],
-                className: 'slot1',
-                textAlign: 'center'
-                }
-              ]
+              entity_class_arr: []
               /** */
               
           };
@@ -103,6 +93,21 @@
             if(!this.user){
                 this.$router.push({ path: '/login' });
             }
+            //初始化 分类
+            Api.request({api:'categorys',data:this.post},(res)=>{
+                if(res.code == 0){
+
+                    this.entity_class_arr = res.data;
+                        
+                }
+            });
+            Api.request({api:'infos',data:this.post},(res)=>{
+                if(res.code == 0){
+
+                    this.publish_type_arr = res.data;
+                        
+                }
+            });
         },
         methods: {
             submit(){
@@ -136,11 +141,14 @@
             },
             getVal(data){
                 this.pvisible = false;
-                this.post.publish_type = data.data;
+                
+                this.post.publish_type = data.data.id;
+                this.display_publish = data.data.name;
             },
             getVal1(data){
                 this.pvisible1 = false;
-                this.post.entity_class = data.data;
+                this.post.entity_class = data.data.id;
+                this.display_entity = data.data.name;
             },
             popup(){
                 this.pvisible = true;

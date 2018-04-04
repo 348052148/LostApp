@@ -9,7 +9,7 @@
                     <a class="cancel" size="small" @click="popupClose" type="danger">取消</a>
                     <a class="sure" size="small" @click="popupSure"  type="primary">确认</a>
                 </div>
-                <mt-picker :slots="classSlots" @change="onValuesChange"></mt-picker>
+                <mt-picker  valueKey="name" :slots="classSlots" @change="onValuesChange"></mt-picker>
         </mt-popup>
     </div>
 
@@ -21,12 +21,24 @@
         name: 'app',
         props:[
             'popupVisible',
-            'classSlots'
+            'values'
         ],
         data:function(){
           return {
               popupCurrentVal:'123',
+              classSlots: [
+                {
+                flex: 1,
+                values: [1,2,3],
+                className: 'slot1',
+                textAlign: 'center'
+                }
+              ]
           };
+        },
+        created(){
+            console.log(this.values);
+            this.classSlots[0].values = this.values;
         },
         methods:{
             popupClose(){
