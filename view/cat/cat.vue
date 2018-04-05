@@ -104,6 +104,9 @@
          height:2.88rem;
          background:url('../../assets/title-bg.png')
      }
+     .cat{
+         overflow: hidden;
+     }
     .cat .content{
         width:100%;
         height:100%;

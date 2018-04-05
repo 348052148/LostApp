@@ -23,10 +23,10 @@
                 <div class="tag">
                     <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
-                    <span class="chat"><mt-badge size="small" color="#ff9900" >归还</mt-badge> <mt-badge size="small" color="#ff9900" >联系他</mt-badge></span>
+                    <span class="chat"><mt-badge size="normal" color="#ff9900" >归还</mt-badge> <mt-badge size="normal" color="#ff9900" >联系他</mt-badge></span>
                 </div>
             </div>
-            <span class="DS"></span>
+            <span class="DSS"></span>
             <div class="content">
                 <div class="text">{{post.content}}</div>
                 <div class="image">
@@ -74,9 +74,9 @@
         display:inline-block;
     }
     /**分割操作 */
-    .DS{
+    .DSS{
         display:block;
-        border-top:0.1875rem solid #eee;
+        border-top:0.1rem solid #eee;
     }
     /**填充操作 */
     .Fill{
@@ -92,7 +92,7 @@
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:3.125rem;
+        margin-top:4rem;
         padding-top:0.2rem;
     }
     .detail .m-info .info .avater {
@@ -113,7 +113,7 @@
     }
     .detail .m-info .info .meta .address {
         width:100%;
-        font-size:0.2rem;
+        font-size:0.8rem;
         color:#ccc;
          display:inline-block;
     }
@@ -125,13 +125,13 @@
     }
     .detail .m-info .info .meta .time {
         width:100%;
-        font-size:0.2rem;
+        font-size:0.8rem;
         color:#ccc;
          display:inline-block;
     }
     .detail .m-info .info .meta .amount{
         width:100%;
-        font-size:1rem;
+        font-size:1.2rem;
         color:red;
          display:inline-block;
     }
@@ -145,7 +145,7 @@
         display:inline-block;
         width:2.5rem;
         float:right;
-        margin-right:0.3rem;
+        margin-right:1rem;
         height:2.5rem;
     }
     .detail .m-info .info .tag .chat{
@@ -179,13 +179,13 @@
     }
     .detail .m-recommend h4{
         font-size:0.875rem;
-        line-height:1.5625rem;
+        line-height:2rem;
         color:#666;
-        text-indent:0.4rem;
-        padding-bottom:0.2rem;
+        text-indent:1rem;
+        padding-top:0.61rem;
         border-bottom:1px solid #eee;
     }
     .detail .m-recommend .content{
-
+        height: 50px;
     }
 </style>

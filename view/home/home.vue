@@ -204,7 +204,7 @@
     .pingli .header .account .time{
         width:6.25rem;
         height:1.25rem;
-        font-size:0.2rem;
+        font-size:0.8rem;
         color:#ccc;
         display:inline-block;
     }
@@ -239,7 +239,7 @@
         display:inline-block;
         width:100%;
         height:1.25rem;
-        font-size:0.4375rem;
+        font-size:0.8375rem;
         color:#ccc;
     }
     .pingli .meta img{
@@ -251,7 +251,7 @@
     .pingli .meta span {
         display:inline-block;
         float:right;
-        margin-right:0.625rem;
+        margin-right:1rem;
     }
     .mint-navbar .mint-tab-item.is-selected {
         border-bottom: 3px solid #43c3f2;

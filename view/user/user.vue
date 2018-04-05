@@ -25,7 +25,9 @@
                 <li><img src="../../assets/icon-publish.png" /><span>我的发布</span></li>
                 </router-link>
                 <span class="DS"></span>
+                <router-link to="/order">
                 <li><img src="../../assets/icon-price.png" /><span>我的交易</span></li>
+                </router-link>
 
                 <span class="DS"></span>
                 <li><img src="../../assets/icon-contact.png" /><span>联系客服</span></li>
@@ -69,6 +71,7 @@
     *{padding:0;margin:0;}
     a{
         color:#333;
+        text-decoration: none;
     }
     .Fill{
         display:inline-block;
@@ -83,8 +86,8 @@
     }
     .user{
         width:100%;
-        height:45rem;
         background:#eee;
+        overflow: hidden;
     }
     /**用户信息 */
     .user .userinfo{

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="publish"  >
+    <div class="order"  >
         <mt-header title="我的发布">
         <router-link to="/" slot="left">
             <mt-button icon="back"></mt-button>
@@ -17,7 +17,7 @@
             <mt-tab-container-item id="1">
 
             <router-link v-for="post in LF" :to="'/detail/'+post.id">
-                <div class="m-publish">
+                <div class="m-order">
                 
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
@@ -50,7 +50,7 @@
             </mt-tab-container-item>
 
             <router-link v-for="post in LT" :to="'/detail/'+post.id">
-                <div class="m-publish">
+                <div class="m-order">
                 
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
@@ -108,7 +108,7 @@
             loadLFMore($state) {
                 if($state)
                         $state.loaded();
-                Api.request({api:'users/'+this.user.id+'/posts',data:{publish_type:2,page:this.LFpage}},(res)=>{
+                Api.request({api:'users/'+this.user.id+'/accounts',data:{publish_type:2,page:this.LFpage}},(res)=>{
                     if(res.code == 0){
                         for(var i=0;i<res.data.length;i++){
                             this.LF.push(res.data[i]);
@@ -125,7 +125,7 @@
             loadLTMore($state){
                 if($state)
                         $state.loaded();
-                Api.request({api:'users/'+this.user.id+'/posts',data:{publish_type:1,page:this.LTpage}},(res)=>{
+                Api.request({api:'users/'+this.user.id+'/accounts',data:{publish_type:1,page:this.LTpage}},(res)=>{
                     if(res.code == 0){
                         for(var i=0;i<res.data.length;i++){
                             this.LT.push(res.data[i]);
@@ -159,34 +159,34 @@
          height:2.88rem;
          background:url('../../assets/title-bg.png')
      }
-    .m-publish{
+    .m-order{
         display:inline-block;
         width:100%;
         height:5rem;
         margin-top:0.5rem;
         margin-bottom:1.2rem;
     }
-    .m-publish .info{
+    .m-order .info{
         display:inline-block;
         width:14rem;
         height:100%;
     }
-    .m-publish .info img {
+    .m-order .info img {
         background:#EEE;
         display:inline-block;
         border:1px solid #eee;
         margin-left:0.2rem;
     }
-    .m-publish .info .context{
+    .m-order .info .context{
         display:inline-block;
         width:8rem;
         height:100%;
     }
-    .m-publish .info .context .tag{
+    .m-order .info .context .tag{
         display:inline-block;
          width:100%;
     }
-    .m-publish .info .context .text{
+    .m-order .info .context .text{
         display:inline-block;
         width:100%;
          overflow: hidden;
@@ -194,19 +194,19 @@
          white-space: nowrap;
     }
 
-    .m-publish .info .context .address{
+    .m-order .info .context .address{
         display:inline-block;
         width:100%;
         font-size:0.6rem;
         color:#ccc;
     }
-    .m-publish .info .context img{
+    .m-order .info .context img{
          display:inline-block;
          margin-right:0.15rem;
          border:0;
         vertical-align: middle;
     }
-    .m-publish .info .context .amount{
+    .m-order .info .context .amount{
         display:inline-block;
         width:100%;
         font-size:16px;
@@ -214,23 +214,23 @@
     }
 
     /**oper */
-    .m-publish .oper{
+    .m-order .oper{
         display:inline-block;
         width:7.5rem;
         float:right;
         height:100%;
     }
-    .m-publish .oper .timer{
+    .m-order .oper .timer{
         display:inline-block;
         width:100%;
         font-size:0.6rem;
         color:#ccc;
     }
-    .m-publish .oper .action{
+    .m-order .oper .action{
         display:inline-block;
         width:100%;
     }
-    .m-publish .oper .action .one{
+    .m-order .oper .action .one{
         margin-right:0.5rem;
     }
 

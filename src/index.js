@@ -31,13 +31,15 @@ import New from './../view/new/new.vue'
 
 import Publish from './../view/publish/publish.vue'
 
+import Order from './../view/order/order.vue'
+
 import Login from './../view/login/login.vue'
 
 import Register from './../view/register/register.vue'
 
 import Api from './api.js'
 
-Api.clearStorage();
+// Api.clearStorage();
 
 Api.setSid();
 
@@ -50,6 +52,7 @@ const routes = [
     { path: '/cat', component:Cat},
     { path: '/new', component:New},
     { path: '/publish', component:Publish},
+    { path:'/order', component:Order},
     { path: '/login', component:Login},
     { path: '/register', component:Register}
 ];
