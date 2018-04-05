@@ -35,7 +35,11 @@
                         <span class="timer">{{post.publish_time}}</span>
                         <div class="PFill"></div>
                         <div class="action">
-                            <mt-badge size="normal" class="one" color="#888" >编辑</mt-badge><mt-badge color="#888" size="normal">删除</mt-badge>
+
+                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >归还中</mt-badge>
+
+                            <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
+                            
                         </div>
                     </div>
                 </div>
@@ -68,7 +72,9 @@
                         <span class="timer">{{post.publish_time}}</span>
                         <div class="PFill"></div>
                         <div class="action">
-                            <mt-badge size="normal" class="one" color="#888" >编辑</mt-badge><mt-badge color="#888" size="normal">删除</mt-badge>
+                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >认领中</mt-badge>
+
+                            <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
                         </div>
                     </div>
                 </div>

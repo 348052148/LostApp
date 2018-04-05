@@ -16,9 +16,9 @@
             <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
 
-            <router-link v-for="post in LF" :to="'/detail/'+post.id">
-                <div class="m-publish">
-                
+           
+                <div  v-for="post in LF" class="m-publish">
+                     <router-link :to="'/detail/'+post.id">
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
                         <div class="context" >
@@ -31,16 +31,22 @@
                             <span class="amount"> ￥{{post.amount}} </span>
                         </div>
                     </div>
+                    </router-link>
+
                     <div class="oper" >
                         <span class="timer">{{post.publish_time}}</span>
                         <div class="PFill"></div>
                         <div class="action">
-                            <mt-badge size="normal" class="one" color="#888" >编辑</mt-badge><mt-badge color="#888" size="normal">删除</mt-badge>
+                             <mt-badge size="normal" v-if="post.status==0" class="one" color="#888" >编辑</mt-badge>
+
+                            <mt-badge @click.native="complate(post.id)" size="normal" v-else-if="post.status==1" class="one" color="#888" >完成</mt-badge>
+                            
+                            <mt-badge color="#888" v-if="post.status==0 || post.status==2" size="normal">删除</mt-badge>
                         </div>
                     </div>
                 </div>
                 <span class="DS"></span>
-            </router-link>
+            
                 
 
             <infinite-loading @infinite="loadLFMore"></infinite-loading>
@@ -49,9 +55,9 @@
                 
             </mt-tab-container-item>
 
-            <router-link v-for="post in LT" :to="'/detail/'+post.id">
-                <div class="m-publish">
-                
+            
+                <div  v-for="post in LT" class="m-publish">
+                 <router-link :to="'/detail/'+post.id">
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
                         <div class="context" >
@@ -64,16 +70,22 @@
                             <span class="amount"> ￥{{post.amount}} </span>
                         </div>
                     </div>
+
+                </router-link>
                     <div class="oper" >
                         <span class="timer">{{post.publish_time}}</span>
                         <div class="PFill"></div>
                         <div class="action">
-                            <mt-badge size="normal" class="one" color="#888" >编辑</mt-badge><mt-badge color="#888" size="normal">删除</mt-badge>
+
+                            <mt-badge size="normal" v-if="post.status==0" class="one" color="#888" >编辑</mt-badge>
+
+                            <mt-badge size="normal" v-else-if="post.status==1" class="one" color="#888" >编辑</mt-badge>
+                            
+                            <mt-badge color="#888" v-if="post.status==0" size="normal">删除</mt-badge>
                         </div>
                     </div>
                 </div>
                 <span class="DS"></span>
-            </router-link>
 
             <infinite-loading @infinite="loadLTMore"></infinite-loading>
             </mt-tab-container>
@@ -136,7 +148,21 @@
                     }
                     
                 });
-            }
+            },
+
+             complate(pid){
+                console.log('归还');
+                 Api.request({api:'posts/'+pid,data:{
+                     status:2,
+                     uid:this.user.id,
+                     m:'PUT'
+                 }},(res)=>{
+                     if(res.code==0){
+                            window.location.reload();
+                     }
+                    
+                });
+            },
         }
     }
 
