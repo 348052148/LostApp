@@ -24,13 +24,26 @@
                     <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
 
-                    <span class="chat">
-                        
-                        <mt-badge v-if="post.publish_type==2" size="normal" color="#ff9900" >归还</mt-badge> 
+                    <span class="chat" v-if="post.status==0">
+                        <mt-badge v-if="post.publish_type==2" size="normal" @click.native="revert(post.id)" color="#ff9900" >归还</mt-badge> 
 
-                        <mt-badge v-else-if="post.publish_type==1" size="normal" color="#ff9900" >认领</mt-badge> 
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" @click.natice="claim(post.id)" color="#ff9900" >认领</mt-badge> 
                     
                         <mt-badge size="normal" color="#ff9900" >联系他</mt-badge>
+                    </span>
+
+                    <span class="chat" v-else-if="post.status==1">
+                        <mt-badge v-if="post.publish_type==2" size="normal"  color="#ff9900" >归还中</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" color="#ff9900" >认领中</mt-badge> 
+                
+                    </span>
+
+                    <span class="chat" v-else-if="post.status==2">
+                        <mt-badge v-if="post.publish_type==2" size="normal" color="#ff9900" >已归还</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal"  color="#ff9900" >已认领</mt-badge> 
+                    
                     </span>
                 </div>
             </div>
@@ -57,13 +70,40 @@
         name: 'detail',
         data:function(){
           return {
-              post:{}
+              post:{},
+              user:{}
           };
         },
         created(){
+            this.user = Api.getStorage('user');
             Api.request({api:'posts/'+this.$route.params.id,data:{}},(res)=>{
                 this.post = res.data;
             });
+        },
+        methods:{
+            revert(pid){
+                console.log('归还');
+                 Api.request({api:'posts/'+this.$route.params.id,data:{
+                     status:1,
+                     uid:this.user.id,
+                     m:'PUT'
+                 }},(res)=>{
+                     if(res.code==0){
+                            window.location.reload();
+                     }
+                    
+                });
+            },
+            claim(pid){
+                console.log('认领');
+                Api.request({api:'posts/'+this.$route.params.id,data:{
+                    status:1,
+                    uid:this.user.id
+                }},(res)=>{
+                    window.location.reload();
+                });
+            }
+
         }
     }
 
@@ -146,7 +186,7 @@
     /** */
     .detail .m-info .info .tag{
         display:inline-block;
-        width:7.5rem;
+        width:8rem;
         float:right;
     }
     .detail .m-info .info .tag .taginfo{
@@ -154,7 +194,7 @@
         width:2.5rem;
         float:right;
         margin-right:1rem;
-        height:2.5rem;
+        height:3rem;
     }
     .detail .m-info .info .tag .chat{
          display:inline-block;

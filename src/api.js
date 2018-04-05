@@ -1,3 +1,5 @@
+import { Indicator } from 'mint-ui';
+var $ = require('jQuery');
 class Api {
 
     constructor(){
@@ -5,8 +7,10 @@ class Api {
     }
 
     static request(obj,callback){
-        var $ = require('jQuery');
+        
+        
         obj.data.sid = this.getSid();
+          
         $.ajax({
             url:"http://sys.ismbao.com.cn/"+obj.api.replace('.','/'),
             data:obj.data,
@@ -16,11 +20,14 @@ class Api {
             dataType:'json',
             success:function(res){
                 callback(res);
+                console.log('REQUEST_END');
+                
             },
             error:function(res){
                 callback(res);
             }
-        })
+        });
+        
     }
 
     static setStorage(key,val){

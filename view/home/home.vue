@@ -84,6 +84,7 @@
     import bBannar  from '../common/bBannar.vue';
     import Api from '../../src/api.js'
     import InfiniteLoading from 'vue-infinite-loading';
+    import { Indicator } from 'mint-ui';
 
     export default {
         components:{
@@ -163,11 +164,15 @@
         background:#EEE;
         margin-bottom:5rem;
     }
+    .home .mint-navbar{
+
+    }
     .swipe {
         height:12.5rem;
     
     }
     .mint-tab-container {
+
     }
     .mint-tab-container-wrap {
         margin-top:0.18rem;
