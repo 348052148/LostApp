@@ -52,10 +52,6 @@
             <infinite-loading @infinite="loadLFMore"></infinite-loading>
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
-                
-            </mt-tab-container-item>
-
-            
                 <div  v-for="post in LT" class="m-publish">
                  <router-link :to="'/detail/'+post.id">
                     <div class="info">
@@ -79,7 +75,7 @@
 
                             <mt-badge size="normal" v-if="post.status==0" class="one" color="#888" >编辑</mt-badge>
 
-                            <mt-badge size="normal" v-else-if="post.status==1" class="one" color="#888" >编辑</mt-badge>
+                            <mt-badge size="normal" v-else-if="post.status==1" class="one" color="#888" >认领中</mt-badge>
                             
                             <mt-badge color="#888" v-if="post.status==0" size="normal">删除</mt-badge>
                         </div>
@@ -87,7 +83,9 @@
                 </div>
                 <span class="DS"></span>
 
-            <infinite-loading @infinite="loadLTMore"></infinite-loading>
+                <infinite-loading @infinite="loadLTMore"></infinite-loading>                
+            </mt-tab-container-item>
+
             </mt-tab-container>
         </div>
     </div>
@@ -97,6 +95,7 @@
 <script>
     import Api from '../../src/api.js'
     import InfiniteLoading from 'vue-infinite-loading';
+    import { MessageBox } from 'mint-ui';
     export default {
          components:{
             InfiniteLoading  
@@ -114,7 +113,7 @@
         },
         created(){
              this.user = Api.getStorage('user');
-             loadLTMore();
+             this.loadLTMore();
         },
         methods:{
             loadLFMore($state) {
@@ -151,17 +150,19 @@
             },
 
              complate(pid){
-                console.log('归还');
-                 Api.request({api:'posts/'+pid,data:{
-                     status:2,
-                     uid:this.user.id,
-                     m:'PUT'
-                 }},(res)=>{
-                     if(res.code==0){
-                            window.location.reload();
-                     }
-                    
-                });
+                 MessageBox.confirm('确定执行此操作?').then(action => {
+                    Api.request({api:'posts/'+pid,data:{
+                        status:2,
+                        uid:this.user.id,
+                        m:'PUT'
+                    }},(res)=>{
+                        if(res.code==0){
+                                window.location.reload();
+                        }
+                        
+                    });
+                 });
+                 
             },
         }
     }

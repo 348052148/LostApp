@@ -16,9 +16,9 @@
             <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
 
-            <router-link v-for="post in LF" :to="'/detail/'+post.id">
-                <div class="m-order">
-                
+            
+                <div v-for="post in LF" class="m-order">
+                <router-link  :to="'/detail/'+post.id">
                     <div class="info">
                         <img src="../../assets/avater.jpg" width="80" height="80" >
                         <div class="context" >
@@ -31,12 +31,13 @@
                             <span class="amount"> ￥{{post.amount}} </span>
                         </div>
                     </div>
+                    </router-link>
                     <div class="oper" >
                         <span class="timer">{{post.publish_time}}</span>
                         <div class="PFill"></div>
                         <div class="action">
 
-                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >归还中</mt-badge>
+                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >待确认</mt-badge>
 
                             <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
                             
@@ -44,44 +45,45 @@
                     </div>
                 </div>
                 <span class="DS"></span>
-            </router-link>
+            
                 
 
             <infinite-loading @infinite="loadLFMore"></infinite-loading>
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
+
+                    <div v-for="post in LT" class="m-order">
+                        <router-link  :to="'/detail/'+post.id">
+                        <div class="info">
+                            <img src="../../assets/avater.jpg" width="80" height="80" >
+                            <div class="context" >
+                                <div class="tag">
+                                <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
+                                <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                                </div>
+                                <span class="text"> {{post.content}} </span>
+                                <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
+                                <span class="amount"> ￥{{post.amount}} </span>
+                            </div>
+                        </div>
+                        </router-link>
+                        <div class="oper" >
+                            <span class="timer">{{post.publish_time}}</span>
+                            <div class="PFill"></div>
+                            <div class="action">
+                                <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >待确认</mt-badge>
+
+                                <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="DS"></span>
+                
+
+                <infinite-loading @infinite="loadLTMore"></infinite-loading>
                 
             </mt-tab-container-item>
 
-            <router-link v-for="post in LT" :to="'/detail/'+post.id">
-                <div class="m-order">
-                
-                    <div class="info">
-                        <img src="../../assets/avater.jpg" width="80" height="80" >
-                        <div class="context" >
-                            <div class="tag">
-                            <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
-                            <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
-                            </div>
-                            <span class="text"> {{post.content}} </span>
-                            <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
-                            <span class="amount"> ￥{{post.amount}} </span>
-                        </div>
-                    </div>
-                    <div class="oper" >
-                        <span class="timer">{{post.publish_time}}</span>
-                        <div class="PFill"></div>
-                        <div class="action">
-                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >认领中</mt-badge>
-
-                            <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
-                        </div>
-                    </div>
-                </div>
-                <span class="DS"></span>
-            </router-link>
-
-            <infinite-loading @infinite="loadLTMore"></infinite-loading>
             </mt-tab-container>
         </div>
     </div>
@@ -108,7 +110,7 @@
         },
         created(){
              this.user = Api.getStorage('user');
-             loadLTMore();
+             this.loadLTMore();
         },
         methods:{
             loadLFMore($state) {

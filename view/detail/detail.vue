@@ -27,7 +27,7 @@
                     <span class="chat" v-if="post.status==0">
                         <mt-badge v-if="post.publish_type==2" size="normal" @click.native="revert(post.id)" color="#ff9900" >归还</mt-badge> 
 
-                        <mt-badge v-else-if="post.publish_type==1" size="normal" @click.natice="claim(post.id)" color="#ff9900" >认领</mt-badge> 
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" @click.native="claim(post.id)" color="#ff9900" >认领</mt-badge> 
                     
                         <mt-badge size="normal" color="#ff9900" >联系他</mt-badge>
                     </span>
@@ -66,6 +66,7 @@
 
 <script>
     import Api from '../../src/api.js'
+    import { MessageBox } from 'mint-ui';
     export default {
         name: 'detail',
         data:function(){
@@ -82,26 +83,33 @@
         },
         methods:{
             revert(pid){
-                console.log('归还');
-                 Api.request({api:'posts/'+this.$route.params.id,data:{
+                MessageBox.confirm('确定执行此操作?').then(action => {
+                    Api.request({api:'posts/'+this.$route.params.id,data:{
                      status:1,
                      uid:this.user.id,
                      m:'PUT'
-                 }},(res)=>{
-                     if(res.code==0){
-                            window.location.reload();
-                     }
-                    
+                    }},(res)=>{
+                        if(res.code==0){
+                                window.location.reload();
+                        }
+                        
+                    });
                 });
+                 
             },
             claim(pid){
-                console.log('认领');
-                Api.request({api:'posts/'+this.$route.params.id,data:{
-                    status:1,
-                    uid:this.user.id
-                }},(res)=>{
-                    window.location.reload();
-                });
+                 MessageBox.confirm('确定执行此操作?').then(action => {
+                        Api.request({api:'posts/'+this.$route.params.id,data:{
+                            status:1,
+                            uid:this.user.id,
+                            m:'PUT'
+                        }},(res)=>{
+                             if(res.code==0){
+                                window.location.reload();
+                            }
+                        });
+                 });
+                
             }
 
         }
