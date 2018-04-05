@@ -205,9 +205,11 @@
         width:100%;
         text-align:center;
         margin-top:2rem;
+        
     }
     .new .submit .sub{
         width:12rem;
+        background:url('../../assets/title-bg.png');
         margin:0 auto;
     }
 

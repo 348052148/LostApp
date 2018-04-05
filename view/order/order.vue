@@ -1,7 +1,7 @@
 <template>
 
     <div class="order"  >
-        <mt-header title="我的发布">
+        <mt-header title="我的交易">
         <router-link to="/" slot="left">
             <mt-button icon="back"></mt-button>
         </router-link>

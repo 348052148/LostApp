@@ -23,7 +23,15 @@
                 <div class="tag">
                     <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
-                    <span class="chat"><mt-badge size="normal" color="#ff9900" >归还</mt-badge> <mt-badge size="normal" color="#ff9900" >联系他</mt-badge></span>
+
+                    <span class="chat">
+                        
+                        <mt-badge v-if="post.publish_type==2" size="normal" color="#ff9900" >归还</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" color="#ff9900" >认领</mt-badge> 
+                    
+                        <mt-badge size="normal" color="#ff9900" >联系他</mt-badge>
+                    </span>
                 </div>
             </div>
             <span class="DSS"></span>

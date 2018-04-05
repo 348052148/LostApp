@@ -109,6 +109,7 @@
     .login .login-method .submit{
         width:12.5rem;
         border-radius:2rem;
+        background:url('../../assets/title-bg.png');
     }
     a{
         text-decoration:none;
