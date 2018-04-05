@@ -194,6 +194,11 @@
          margin-top:0.5rem;
     }
     .popup-picker .status .sure{
+         float:right;
+         margin-right:0.5rem;
+         margin-top:0.5rem;
+    }
+    .popup-picker .status .sure{
         float:right;
          margin-right:0.5rem;
          margin-top:0.5rem;
@@ -220,6 +225,7 @@
 
      .Label {
          margin-top:0;
+         border: 1px solid #eee);
      }
 
      .new .form  .mint-cell:last-child{

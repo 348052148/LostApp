@@ -16,7 +16,7 @@
             </mt-tab-item>
 
            <mt-tab-item id="tab+">
-                <img slot="icon" src="../../assets/nav-icon-cat.png">
+                <img slot="icon" src="../../assets/nav-icon-cat.png">发布
             </mt-tab-item>
        
             <mt-tab-item id="tab3">
