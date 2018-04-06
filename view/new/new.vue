@@ -1,11 +1,7 @@
 <template>
 
     <div  class='new' >
-        <mt-header title="详细信息">
-        <router-link to="/" slot="left">
-            <mt-button icon="back"></mt-button>
-        </router-link>
-        </mt-header>
+        <bHeader title="详细信息" />
 
         <div class="form">
             <mt-cell title="发布类型" @click.native="popup" is-link >
@@ -67,12 +63,14 @@
 </template>
 
 <script>
+    import bHeader  from '../common/bHeader.vue';
     import bPopupSelect  from '../common/bPopupSelect.vue';
     import Api from '../../src/api.js';
     import { Toast,Indicator } from 'mint-ui';
     export default {
         components:{
-            bPopupSelect  
+            bPopupSelect,
+            bHeader
         },
         name: 'app',
         data:function(){
@@ -91,7 +89,7 @@
               display_publish:'',
               display_entity:'',
 
-              post:{},
+              post:{amount:0.0},
 
               user:{},
 
@@ -126,6 +124,7 @@
                         
                 }
             });
+
         },
         methods: {
             removeImage(){
@@ -241,10 +240,6 @@
         width:100%;
         background:#FFF;
     }
-    .mint-header{
-         height:2.88rem;
-         background:url('../../assets/title-bg.png')
-     }
 
     /**popup-picker */
     .popup-picker{
@@ -277,12 +272,14 @@
         width:100%;
         text-align:center;
         margin-top:2rem;
+         margin-bottom: 2rem;
         
     }
     .new .submit .sub{
         width:12rem;
         background:url('../../assets/title-bg.png');
         margin:0 auto;
+        border-radius: 1.5rem;
     }
 
 
@@ -307,7 +304,7 @@
      .Label .mint-field-core{
             border:1px solid #eee;
      }
-
+    /* 上传图片样式*/
      .new .form .upload {
          display: inline-block;
          width: 100%;

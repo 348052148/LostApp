@@ -1,11 +1,8 @@
 <template>
 
     <div class="order"  >
-        <mt-header title="我的交易">
-        <router-link to="/" slot="left">
-            <mt-button icon="back"></mt-button>
-        </router-link>
-        </mt-header>
+        <bHeader title="我的交易"  />
+        
         <div class ="content">
             <mt-navbar v-model="selected">
             <mt-tab-item id="1">寻物启事</mt-tab-item>
@@ -93,9 +90,10 @@
 <script>
     import Api from '../../src/api.js'
     import InfiniteLoading from 'vue-infinite-loading';
+    import bHeader  from '../common/bHeader.vue';
     export default {
          components:{
-            InfiniteLoading  
+            InfiniteLoading  ,bHeader
         },
         name: 'app',
         data:function(){

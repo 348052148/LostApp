@@ -1,11 +1,7 @@
 <template>
 
     <div  class="login" >
-        <mt-header fixed title="登录">
-            <router-link to="/" slot="left">
-                <mt-button  icon="back"></mt-button>
-            </router-link>
-        </mt-header>
+        <bHeader title="登录" />
 
          <div class="topic">
         <img src="../../assets/log.jpg" height="200" width="100%" />
@@ -29,9 +25,13 @@
 </template>
 
 <script>
+    import bHeader  from '../common/bHeader.vue';
     import Api from '../../src/api.js'
     import { Toast } from 'mint-ui';
     export default {
+        components:{
+            bHeader
+        },
         name: 'login',
         data:function(){
           return {

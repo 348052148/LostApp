@@ -23,7 +23,7 @@
      import bBannar  from '../common/bBannar.vue';
     export default {
         components:{
-            bBannar  
+            bBannar 
         },
         name: 'message',
         data:function(){

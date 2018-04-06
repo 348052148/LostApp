@@ -1,11 +1,7 @@
 <template>
 
     <div class="detail" >
-        <mt-header fixed title="寻物启事">
-            <router-link to="/" slot="left">
-                <mt-button icon="back"></mt-button>
-            </router-link>
-        </mt-header>
+        <bHeader title="寻物启事" />
 
         <div class="m-info" >
             <div class="info">
@@ -67,7 +63,11 @@
 <script>
     import Api from '../../src/api.js'
     import { MessageBox } from 'mint-ui';
+    import bHeader  from '../common/bHeader.vue';
     export default {
+        components:{
+            bHeader
+        },
         name: 'detail',
         data:function(){
           return {
@@ -148,7 +148,7 @@
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:4rem;
+        margin-top:0.4rem;
         padding-top:0.2rem;
     }
     .detail .m-info .info .avater {

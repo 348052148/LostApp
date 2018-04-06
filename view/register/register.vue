@@ -1,11 +1,9 @@
 <template>
 
     <div class="register" >
-        <mt-header fixed title="注册">
-            <router-link to="/" slot="left">
-                <mt-button  icon="back"></mt-button>
-            </router-link>
-        </mt-header>
+       <bHeader title="注册" />
+
+
         <div class="ad">
 
         </div>
@@ -31,7 +29,11 @@
 <script>
     import Api from '../../src/api.js'
     import { Toast } from 'mint-ui';
+    import bHeader  from '../common/bHeader.vue';
     export default {
+        components:{
+            bHeader
+        },
         name: 'app',
         data:function(){
           return {
