@@ -39,7 +39,6 @@ import Register from './../view/register/register.vue'
 
 import Api from './api.js'
 
-// Api.clearStorage();
 
 Api.setSid();
 

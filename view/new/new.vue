@@ -39,6 +39,20 @@
             
             <span class="DS"></span>
 
+          
+            <div class="upload">
+                <input type="file" @change="addImage(this)" id="upimg" style="display:none;" name="123" >
+                <div class="upload_pic" @click="chooseFile">
+                    <img width="60" height="60" src="../../assets/nav-icon-msg.png" />
+                </div>
+
+                <div v-for="file in files" class="upload_pic">
+                    <div @click="removeImage" class="delete"><img width="20" height="20" src="../../assets/delete.png" ></div>
+                    <img width="60" height="60" :src="file" />
+                </div>
+            </div>
+            <span class="DS"></span>
+            
             <mt-field label="赏金" placeholder="" v-model="post.amount"></mt-field>
 
             <span class="DS"></span>
@@ -54,8 +68,8 @@
 
 <script>
     import bPopupSelect  from '../common/bPopupSelect.vue';
-    import Api from '../../src/api.js'
-    import { Toast } from 'mint-ui';
+    import Api from '../../src/api.js';
+    import { Toast,Indicator } from 'mint-ui';
     export default {
         components:{
             bPopupSelect  
@@ -63,6 +77,10 @@
         name: 'app',
         data:function(){
           return {
+              files:[],
+              formData:new FormData(),
+              croppaList:{},
+
               selected: 100,
               username:'',
 
@@ -110,11 +128,58 @@
             });
         },
         methods: {
-            submit(){
+            removeImage(){
+                console.log('sshanc');
+                this.croppaList.remove();
+            },
+            chooseFile(){
+                upimg.click();
+            },
+            dataURLtoFile(dataurl, filename) {
+                var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+                while(n--){
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                return new File([u8arr], filename, {type:mime});
+            },
+            dataURLtoBlob(dataurl) {
+                var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+                while(n--){
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                return new Blob([u8arr], {type:mime});
+            },
+            addImage(source){
+                // console.log($('#upimg').prop('files'));
+                for (var i = 0;i < upimg.files.length;i++){
+                    var file = upimg.files[0]
+                    console.log(file);
+                    var reader = new FileReader();//新建一个FileReader
+                    //reader.readAsText(file, "UTF-8");//读取文件
+                    reader.readAsDataURL(file);
+                    reader.onloadend = (evt) => { //读取完文件之后会回来这里
+                        var fileString = evt.target.result;
+                        //post方式上传图片到控制器
+                        this.files.push(fileString);
+                        this.formData.append('files'+Math.ceil(Math.random()*100),this.dataURLtoFile(fileString,file.name));
+                    
+
+                    }
+                }
                 
-                this.post.m = 'POST';
-                this.post.puid = this.user.id;
-                Api.request({api:'posts',data:this.post},(res)=>{
+            },
+            submit(){
+                for (const key in this.post) {
+                    if (this.post.hasOwnProperty(key)) {
+
+                         this.formData.append(key,this.post[key]);
+                        
+                    }
+                }
+                this.formData.append('puid',this.user.id);
+                Api.uploadFile(this.formData,'/posts',(res)=>{
                     if(res.code == 0){
                         Toast({
                         message: res.message,
@@ -130,7 +195,9 @@
                         duration: 1000
                         });
                     }
+                    
                 });
+                
             },
             /**组件 */
             closeVal(){
@@ -225,7 +292,7 @@
 
      .Label {
          margin-top:0;
-         border: 1px solid #eee);
+         border: 1px solid #eee;
      }
 
      .new .form  .mint-cell:last-child{
@@ -235,5 +302,36 @@
      .new .form  .mint-cell .mint-cell-wrapper{
          background:none;
          font-size:14px;
+     }
+
+     .Label .mint-field-core{
+            border:1px solid #eee;
+     }
+
+     .new .form .upload {
+         display: inline-block;
+         width: 100%;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         overflow: hidden;
+     }
+     .new .form .upload .upload_pic{
+         display: inline-block;
+         position: relative;
+         height:70px;
+         width: 70px;
+         margin-left: 5px;
+         border: 1px solid #eee;
+     }
+     .new .form .upload .upload_pic img{
+         width: 70px;
+         height: 70px;
+         position: absolute;
+     }
+     .new .form .upload .upload_pic .delete img{
+          width: 12px;
+         height: 12px;
+        position: absolute;
+        left: 58px;
      }
 </style>

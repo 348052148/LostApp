@@ -10,7 +10,7 @@
             </mt-swipe>
         </div>
 
-        <mt-navbar v-model="selected">
+        <mt-navbar  v-model="selected">
             <mt-tab-item id="1">寻物启事</mt-tab-item>
             <mt-tab-item id="2">招领启事</mt-tab-item>
         </mt-navbar>
@@ -117,6 +117,19 @@
                 Api.request({api:'navs',data:{}},(res)=>{
                     
                 });
+
+                // 处理 滚动事件
+                var $ = require('jQuery');
+
+                $(window).scroll(function(e) {
+                   if($(window).scrollTop() >= 200){
+                       $('.mint-navbar').addClass('is-fixed');
+                       $('.home .mint-tab-container').css({marginTop:'49px'});
+                   }else{
+                       $('.mint-navbar').removeClass('is-fixed');
+                       $('.home .mint-tab-container').css({marginTop:'0px'});
+                   }
+                });
         },
         methods:{
             loadLFMore($state) {
@@ -164,9 +177,7 @@
         background:#EEE;
         margin-bottom:5rem;
     }
-    .home .mint-navbar{
-
-    }
+   
     .swipe {
         height:12.5rem;
     

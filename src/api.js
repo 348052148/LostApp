@@ -6,16 +6,43 @@ class Api {
 
     }
 
+
+    static uploadFile(formData,api,callback){
+        $.ajax({
+            url:"http://sys.ismbao.com.cn/"+api.replace('.','/'),
+            data:formData,
+            timeout:1000,
+            type:'POST',
+            async:false,
+            processData : false,
+            contentType : false,
+            dataType:'json',
+            success:function(res){
+                callback(res);
+                console.log('REQUEST_END');
+                
+            },
+            error:function(res){
+                callback(res);
+            }
+        });
+    }
+
     static request(obj,callback){
         
         
         obj.data.sid = this.getSid();
-          
+        let type = 'GET';
+        if(obj.data.m == 'POST'){
+            type = 'POST';
+        }else{
+            type = 'GET';
+        }
         $.ajax({
             url:"http://sys.ismbao.com.cn/"+obj.api.replace('.','/'),
             data:obj.data,
             timeout:1000,
-            type:'GET',
+            type:type,
             async:false,
             dataType:'json',
             success:function(res){
