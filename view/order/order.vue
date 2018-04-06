@@ -2,7 +2,7 @@
 
     <div class="order"  >
         <bHeader title="我的交易"  />
-        
+
         <div class ="content">
             <mt-navbar v-model="selected">
             <mt-tab-item id="1">寻物启事</mt-tab-item>
@@ -165,12 +165,16 @@
          height:2.88rem;
          background:url('../../assets/title-bg.png')
      }
+     .order .content{
+          margin-top:2.88rem;
+     }
     .m-order{
         display:inline-block;
         width:100%;
         height:5rem;
         margin-top:0.5rem;
         margin-bottom:1.2rem;
+
     }
     .m-order .info{
         display:inline-block;

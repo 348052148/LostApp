@@ -185,6 +185,9 @@
          height:2.88rem;
          background:url('../../assets/title-bg.png')
      }
+     .publish .content{
+         margin-top:2.88rem;
+     }
     .m-publish{
         display:inline-block;
         width:100%;

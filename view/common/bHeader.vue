@@ -1,7 +1,7 @@
 <template>
 
     <div class="header"  >
-        <mt-header :title="title">
+        <mt-header fixed :title="title">
         <router-link to="" @click.native="back" slot="left">
             <mt-button icon="back"></mt-button>
         </router-link>

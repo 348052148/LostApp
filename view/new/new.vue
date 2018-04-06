@@ -36,17 +36,8 @@
             <span class="DS"></span>
 
           
-            <div class="upload">
-                <input type="file" @change="addImage(this)" id="upimg" style="display:none;" name="123" >
-                <div class="upload_pic" @click="chooseFile">
-                    <img width="60" height="60" src="../../assets/nav-icon-msg.png" />
-                </div>
+            <bUpload :fileFormData="fileData" />
 
-                <div v-for="file in files" class="upload_pic">
-                    <div @click="removeImage" class="delete"><img width="20" height="20" src="../../assets/delete.png" ></div>
-                    <img width="60" height="60" :src="file" />
-                </div>
-            </div>
             <span class="DS"></span>
             
             <mt-field label="赏金" placeholder="" v-model="post.amount"></mt-field>
@@ -65,19 +56,21 @@
 <script>
     import bHeader  from '../common/bHeader.vue';
     import bPopupSelect  from '../common/bPopupSelect.vue';
+    import bUpload  from '../common/bUpload.vue';
     import Api from '../../src/api.js';
     import { Toast,Indicator } from 'mint-ui';
     export default {
         components:{
             bPopupSelect,
-            bHeader
+            bHeader,
+            bUpload
         },
         name: 'app',
         data:function(){
           return {
               files:[],
               formData:new FormData(),
-              croppaList:{},
+              fileData:[],
 
               selected: 100,
               username:'',
@@ -127,49 +120,14 @@
 
         },
         methods: {
-            removeImage(){
-                console.log('sshanc');
-                this.croppaList.remove();
-            },
-            chooseFile(){
-                upimg.click();
-            },
-            dataURLtoFile(dataurl, filename) {
-                var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-                    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-                while(n--){
-                    u8arr[n] = bstr.charCodeAt(n);
-                }
-                return new File([u8arr], filename, {type:mime});
-            },
-            dataURLtoBlob(dataurl) {
-                var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-                    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-                while(n--){
-                    u8arr[n] = bstr.charCodeAt(n);
-                }
-                return new Blob([u8arr], {type:mime});
-            },
-            addImage(source){
-                // console.log($('#upimg').prop('files'));
-                for (var i = 0;i < upimg.files.length;i++){
-                    var file = upimg.files[0]
-                    console.log(file);
-                    var reader = new FileReader();//新建一个FileReader
-                    //reader.readAsText(file, "UTF-8");//读取文件
-                    reader.readAsDataURL(file);
-                    reader.onloadend = (evt) => { //读取完文件之后会回来这里
-                        var fileString = evt.target.result;
-                        //post方式上传图片到控制器
-                        this.files.push(fileString);
-                        this.formData.append('files'+Math.ceil(Math.random()*100),this.dataURLtoFile(fileString,file.name));
-                    
+            submit(){
 
+                for (const key in this.fileData) {
+                    if (this.fileData.hasOwnProperty(key)) {
+                       this.formData.append('file'+Math.ceil(Math.random()*100),this.fileData[key]);
                     }
                 }
-                
-            },
-            submit(){
+
                 for (const key in this.post) {
                     if (this.post.hasOwnProperty(key)) {
 
@@ -292,6 +250,10 @@
          border: 1px solid #eee;
      }
 
+    .new .form{
+        margin-top: 2.88rem;
+    }
+
      .new .form  .mint-cell:last-child{
         background:none;
      }
@@ -317,7 +279,7 @@
          position: relative;
          height:70px;
          width: 70px;
-         margin-left: 5px;
+         margin-left: 0.6rem;
          border: 1px solid #eee;
      }
      .new .form .upload .upload_pic img{
@@ -326,9 +288,11 @@
          position: absolute;
      }
      .new .form .upload .upload_pic .delete img{
-          width: 12px;
-         height: 12px;
+          width: 10px;
+         height: 10px;
+         z-index: 10000;
         position: absolute;
+        top:2px;
         left: 58px;
      }
 </style>

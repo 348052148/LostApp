@@ -143,6 +143,7 @@
     /**信息模块 */
     .detail .m-info{
         width:100%;
+        margin-top:2.88rem;
         background:#fff;
     }
     .detail .m-info .info {
