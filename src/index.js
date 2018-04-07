@@ -21,6 +21,8 @@ import Detail from './../view/detail/detail.vue'
 
 import User from './../view/user/user.vue'
 
+import Person from './../view/person/person.vue'
+
 import Message from './../view/message/message.vue'
 
 import List from './../view/list/list.vue'
@@ -46,6 +48,7 @@ const routes = [
     { path: '/', component: Home },
     { path: '/detail/:id', component:Detail},
     { path: '/user', component:User},
+    { path: '/person/:id', component:Person},
     { path: '/msg', component:Message},
     { path: '/list', component:List},
     { path: '/cat', component:Cat},
