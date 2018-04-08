@@ -13,35 +13,36 @@
             <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
 
-            
-                <div v-for="post in LF" class="m-order">
-                <router-link  :to="'/detail/'+post.id">
-                    <div class="info">
-                        <img src="../../assets/avater.jpg" width="80" height="80" >
+            <div v-for="post in LF">
+                <div class="m-od">
+                        <div class="state">订单编号:$67928931 
+                            <span>已完成</span>
+                        </div>
+                        <router-link :to="'/detail/'+post.id">
+                        <div class ="avater">
+                            <img src="../../assets/avater.jpg" width="80" height="80" >
+                        </div>
+                        </router-link>
+
                         <div class="context" >
                             <div class="tag">
                             <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
                             <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                            <span class="timer">2018-04-05 20:07:16</span>
                             </div>
-                            <span class="text"> {{post.content}} </span>
+
+                            <span class="text">{{post.content}} </span>
                             <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
-                            <span class="amount"> ￥{{post.amount}} </span>
+                            <div class="amount"> ￥{{post.amount}}
+                                
+                                <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
+                                
+                            </div>
                         </div>
-                    </div>
-                    </router-link>
-                    <div class="oper" >
-                        <span class="timer">{{post.publish_time}}</span>
-                        <div class="PFill"></div>
-                        <div class="action">
-
-                            <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >待确认</mt-badge>
-
-                            <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
-                            
-                        </div>
-                    </div>
                 </div>
-                <span class="DS"></span>
+
+                    <span class="DSf"></span>
+                 </div>
             
                 
 
@@ -49,32 +50,34 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
 
-                    <div v-for="post in LT" class="m-order">
-                        <router-link  :to="'/detail/'+post.id">
-                        <div class="info">
-                            <img src="../../assets/avater.jpg" width="80" height="80" >
-                            <div class="context" >
-                                <div class="tag">
-                                <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
-                                <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                    <div v-for="post in LT">
+                        <div class="m-od">
+                                <router-link :to="'/detail/'+post.id">
+                                <div class ="avater">
+                                    <img src="../../assets/avater.jpg" width="80" height="80" >
                                 </div>
-                                <span class="text"> {{post.content}} </span>
-                                <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
-                                <span class="amount"> ￥{{post.amount}} </span>
-                            </div>
-                        </div>
-                        </router-link>
-                        <div class="oper" >
-                            <span class="timer">{{post.publish_time}}</span>
-                            <div class="PFill"></div>
-                            <div class="action">
-                                <mt-badge size="normal" v-if="post.status==1" class="one" color="#888" >待确认</mt-badge>
+                                </router-link>
 
-                                <mt-badge size="normal" v-else-if="post.status==2" class="one" color="#888" >已完成</mt-badge>
-                            </div>
+                                <div class="context" >
+                                    <div class="tag">
+                                    <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
+                                    <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                                    <span class="timer">2018-04-05 20:07:16</span>
+                                    </div>
+
+                                    <span class="text">{{post.content}} </span>
+                                    <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
+                                    <div class="amount"> ￥{{post.amount}}
+                                        
+                                        <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
+
+                                         <div v-if="post.status==1" class='btn'><span>确认</span></div>
+                                        
+                                    </div>
+                                </div>
                         </div>
-                    </div>
-                    <span class="DS"></span>
+                    <span class="DSf"></span>
+                 </div>
                 
 
                 <infinite-loading @infinite="loadLTMore"></infinite-loading>
@@ -155,7 +158,7 @@
         width:100%;
         height:2.5rem;
     }
-    .DS{
+    .DSf{
         display:block;
         width:99%;
         margin:0 auto;
@@ -167,6 +170,10 @@
      }
      .order .content{
           margin-top:2.88rem;
+          background:#eee;
+           position:absolute;  
+            top: 0px;  
+            bottom: 0px;  
      }
     .m-order{
         display:inline-block;
@@ -243,5 +250,98 @@
     .m-order .oper .action .one{
         margin-right:0.5rem;
     }
+
+    /**新样式 */
+    .m-od {
+        background:#fff;
+         display:inline-block;
+        width:100%;
+        margin-top:0.1rem;
+        padding-top:0.3rem;
+        margin-bottom:0.2rem;
+        padding-bottom:0.5rem;
+    }
+    .m-od .avater{
+         display:inline-block;
+        height:100%;
+        width:23%;
+    }
+    .m-od .avater img{
+        border:1px solid #eee;
+        margin-left:0.2rem;
+    }
+    .m-od .context{
+        display:inline-block;
+        height:100%;
+        width:72%;
+    }
+    .m-od .context .tag{
+         display:inline-block;
+        width:100%;
+        margin-bottom:0.3rem;
+    }
+    .m-od .context .timer {
+        font-size:0.6rem;
+        color:#ccc;
+        float:right;
+    }
+    .m-od .context .text{
+        width:100%;
+        display:inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size:0.9rem;
+    }
+    .m-od .context .address{
+        align:middle;
+        width:100%;
+        display:inline-block;
+         font-size:0.6rem;
+        color:#ccc;
+    }
+    .m-od .context .amount{
+        display:inline-block;
+        width:100%;
+        font-size:16px;
+        color:red;
+    }
+    .m-od .context .amount .mint-badge{
+        float:right;
+    }
+
+    .m-od .state{
+        width:100%;
+        font-size:0.6rem;
+        height:1.5rem;
+        align:middle;
+        text-indent:5px;
+        border-bottom:1px solid #eee;
+
+    }
+    .m-od .state span{
+        display:inline-block;
+        float:right;
+
+        margin-right:0.5rem;
+    }
+
+    .btn{
+        float:right;
+        border-radius:1rem;
+        margin-right:0.5rem;
+        border:2px solid #f6b26b;
+    }
+    .btn span{
+        color:#666;
+        font-size:1rem;
+        padding:10px;
+    }
+    .btn-del{
+        border:2px solid red;
+     }
+     .btn-edit{
+         	border:2px solid #ff9900;
+     }
 
 </style>

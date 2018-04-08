@@ -72,6 +72,9 @@
         width:100%;
         background:#eee;
         overflow: hidden;
+        position:absolute;  
+            top: 0px;  
+            bottom: 0px;  
     }
     /**用户信息 */
     .person .userinfo{

@@ -35,9 +35,9 @@
                                 
                                 <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
 
-                                <div v-if="post.status==0" class='btn'><span>编辑</span></div>
+                                <div v-if="post.status==0" class='btn btn-edit'><span>编辑</span></div>
 
-                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>完成</span></div>
+                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>确认</span></div>
 
                                 
                             </div>
@@ -74,9 +74,9 @@
                                 
                                 <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
 
-                                <div v-if="post.status==0" class='btn'><span>编辑</span></div>
+                                <div v-if="post.status==0" class='btn btn-edit'><span>编辑</span></div>
 
-                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>完成</span></div>
+                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>确认</span></div>
 
                                 
                             </div>
@@ -339,5 +339,8 @@
     }
     .btn-del{
         border:2px solid red;
+     }
+     .btn-edit{
+         	border:2px solid #ff9900;
      }
 </style>

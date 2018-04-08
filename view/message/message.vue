@@ -52,6 +52,9 @@
         width:100%;
         margin-top:2.88rem;
         background:#eee;
+        position:absolute;  
+            top: 0px;  
+            bottom: 0px;  
     }
     /**功能列表 */
     .message .func{
