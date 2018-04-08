@@ -273,8 +273,9 @@
          display:inline-block;
         width:100%;
         height:5rem;
-        margin-top:0.5rem;
+        padding-top:0.3rem;
         margin-bottom:1.2rem;
+        padding-bottom:0.5rem;
     }
     .m-pb .avater{
          display:inline-block;
