@@ -279,16 +279,16 @@
     .m-pb .avater{
          display:inline-block;
         height:100%;
-        width:5.5rem;
+        width:23%;
     }
     .m-pb .avater img{
         border:1px solid #eee;
         margin-left:0.2rem;
     }
     .m-pb .context{
-         display:inline-block;
+        display:inline-block;
         height:100%;
-        width:17rem;
+        width:72%;
     }
     .m-pb .context .tag{
          display:inline-block;
