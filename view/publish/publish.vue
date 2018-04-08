@@ -192,90 +192,20 @@
      }
      .publish .content{
          margin-top:2.88rem;
+         background:#eee;
+           position:absolute;  
+            top: 0px;  
+            bottom: 0px;
      }
-    .m-publish{
-        display:inline-block;
-        width:100%;
-        height:5rem;
-        margin-top:0.5rem;
-        margin-bottom:1.2rem;
-    }
-    .m-publish .info{
-        display:inline-block;
-        width:14rem;
-        height:100%;
-    }
-    .m-publish .info img {
-        background:#EEE;
-        display:inline-block;
-        border:1px solid #eee;
-        margin-left:0.2rem;
-    }
-    .m-publish .info .context{
-        display:inline-block;
-        width:8rem;
-        height:100%;
-    }
-    .m-publish .info .context .tag{
-        display:inline-block;
-         width:100%;
-    }
-    .m-publish .info .context .text{
-        display:inline-block;
-        width:100%;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-    }
-
-    .m-publish .info .context .address{
-        display:inline-block;
-        width:100%;
-        font-size:0.6rem;
-        color:#ccc;
-    }
-    .m-publish .info .context img{
-         display:inline-block;
-         margin-right:0.15rem;
-         border:0;
-        vertical-align: middle;
-    }
-    .m-publish .info .context .amount{
-        display:inline-block;
-        width:100%;
-        font-size:16px;
-        color:red;
-    }
-
-    /**oper */
-    .m-publish .oper{
-        display:inline-block;
-        width:7.5rem;
-        float:right;
-        height:100%;
-    }
-    .m-publish .oper .timer{
-        display:inline-block;
-        width:100%;
-        font-size:0.6rem;
-        color:#ccc;
-    }
-    .m-publish .oper .action{
-        display:inline-block;
-        width:100%;
-    }
-    .m-publish .oper .action .one{
-        margin-right:0.5rem;
-    }
-
+   
     /**新样式 */
     .m-pb {
          display:inline-block;
         width:100%;
-        height:5rem;
-        padding-top:0.3rem;
-        margin-bottom:1.2rem;
-        padding-bottom:0.5rem;
+        padding-top:0.8rem;
+        margin-bottom:0.2rem;
+        background:#fff;
+        padding-bottom:0.8rem;
     }
     .m-pb .avater{
          display:inline-block;
@@ -297,7 +227,7 @@
         margin-bottom:0.3rem;
     }
     .m-pb .context .timer {
-        font-size:0.6rem;
+        font-size:0.8rem;
         color:#ccc;
         float:right;
     }
@@ -308,18 +238,20 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size:0.9rem;
+        margin:0.3rem 0;
     }
     .m-pb .context .address{
         align:middle;
         width:100%;
         display:inline-block;
-         font-size:0.6rem;
+         font-size:0.8rem;
         color:#ccc;
     }
     .m-pb .context .amount{
         display:inline-block;
         width:100%;
         font-size:16px;
+        margin-top:0.2rem;
         color:red;
     }
     .m-pb .context .amount .mint-badge{

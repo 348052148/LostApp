@@ -15,8 +15,8 @@
 
             <div v-for="post in LF">
                 <div class="m-od">
-                        <div class="state">订单编号:$67928931 
-                            <span>已完成</span>
+                        <div class="state"><span class="title">订单编号</span> : &nbsp;$67928931 
+                            <span class="status">已完成</span>
                         </div>
                         <router-link :to="'/detail/'+post.id">
                         <div class ="avater">
@@ -52,6 +52,11 @@
 
                     <div v-for="post in LT">
                         <div class="m-od">
+
+                                <div class="state"><span class="title">订单编号</span> : &nbsp;$67928931 
+                                    <span class="status">已完成</span>
+                                </div>
+
                                 <router-link :to="'/detail/'+post.id">
                                 <div class ="avater">
                                     <img src="../../assets/avater.jpg" width="80" height="80" >
@@ -175,81 +180,7 @@
             top: 0px;  
             bottom: 0px;  
      }
-    .m-order{
-        display:inline-block;
-        width:100%;
-        height:5rem;
-        margin-top:0.5rem;
-        margin-bottom:1.2rem;
-
-    }
-    .m-order .info{
-        display:inline-block;
-        width:14rem;
-        height:100%;
-    }
-    .m-order .info img {
-        background:#EEE;
-        display:inline-block;
-        border:1px solid #eee;
-        margin-left:0.2rem;
-    }
-    .m-order .info .context{
-        display:inline-block;
-        width:8rem;
-        height:100%;
-    }
-    .m-order .info .context .tag{
-        display:inline-block;
-         width:100%;
-    }
-    .m-order .info .context .text{
-        display:inline-block;
-        width:100%;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-    }
-
-    .m-order .info .context .address{
-        display:inline-block;
-        width:100%;
-        font-size:0.6rem;
-        color:#ccc;
-    }
-    .m-order .info .context img{
-         display:inline-block;
-         margin-right:0.15rem;
-         border:0;
-        vertical-align: middle;
-    }
-    .m-order .info .context .amount{
-        display:inline-block;
-        width:100%;
-        font-size:16px;
-        color:red;
-    }
-
-    /**oper */
-    .m-order .oper{
-        display:inline-block;
-        width:7.5rem;
-        float:right;
-        height:100%;
-    }
-    .m-order .oper .timer{
-        display:inline-block;
-        width:100%;
-        font-size:0.6rem;
-        color:#ccc;
-    }
-    .m-order .oper .action{
-        display:inline-block;
-        width:100%;
-    }
-    .m-order .oper .action .one{
-        margin-right:0.5rem;
-    }
+   
 
     /**新样式 */
     .m-od {
@@ -259,12 +190,13 @@
         margin-top:0.1rem;
         padding-top:0.3rem;
         margin-bottom:0.2rem;
-        padding-bottom:0.5rem;
+        padding-bottom:0.8rem;
     }
     .m-od .avater{
          display:inline-block;
         height:100%;
         width:23%;
+        padding-bottom:1rem;
     }
     .m-od .avater img{
         border:1px solid #eee;
@@ -281,7 +213,7 @@
         margin-bottom:0.3rem;
     }
     .m-od .context .timer {
-        font-size:0.6rem;
+        font-size:0.8rem;
         color:#ccc;
         float:right;
     }
@@ -292,12 +224,13 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size:0.9rem;
+        padding: 0.3rem 0;
     }
     .m-od .context .address{
         align:middle;
         width:100%;
         display:inline-block;
-         font-size:0.6rem;
+         font-size:0.8rem;
         color:#ccc;
     }
     .m-od .context .amount{
@@ -312,14 +245,18 @@
 
     .m-od .state{
         width:100%;
-        font-size:0.6rem;
+        font-size:0.8rem;
         height:1.5rem;
         align:middle;
         text-indent:5px;
         border-bottom:1px solid #eee;
-
+        padding-top:0.5rem;
+        margin-bottom:0.5rem;
     }
-    .m-od .state span{
+    .m-od .state .title{
+        font-weight:800;
+    }
+    .m-od .state .status{
         display:inline-block;
         float:right;
 

@@ -176,9 +176,6 @@
     .home{
         background:#EEE;
         margin-bottom:5rem;
-        position:absolute;  
-            top: 0px;  
-            bottom: 0px;  
     }
    
     .swipe {
