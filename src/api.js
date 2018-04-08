@@ -29,8 +29,6 @@ class Api {
     }
 
     static request(obj,callback){
-        
-        
         obj.data.sid = this.getSid();
         let type = 'GET';
         if(obj.data.m == 'POST'){
@@ -48,7 +46,6 @@ class Api {
             success:function(res){
                 callback(res);
                 console.log('REQUEST_END');
-                
             },
             error:function(res){
                 callback(res);

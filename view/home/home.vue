@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="home">
+    <div  class="home">
         <div class="swipe">
             <mt-swipe :auto="4000">
                 <mt-swipe-item v-for="swipe in model.swipe"  >
@@ -14,9 +14,9 @@
             <mt-tab-item id="1">寻物启事</mt-tab-item>
             <mt-tab-item id="2">招领启事</mt-tab-item>
         </mt-navbar>
-
+    
         <!-- tab-container -->
-        <mt-tab-container v-model="selected"   >
+        <mt-tab-container  v-model="selected"   >
         
         <mt-tab-container-item id="1"  >
             
@@ -76,7 +76,7 @@
     </div>
 
     <bBannar selected='tab1' />
-   
+    
     </div>
 </template>
 
@@ -89,7 +89,7 @@
     export default {
         components:{
             bBannar,
-            InfiniteLoading  
+            InfiniteLoading
         },
         name: 'home',
         data:function(){
@@ -233,7 +233,7 @@
     }
 
     .pingli .content{
-        padding-top:0.4rem;
+        padding-top:1rem;
         padding-left:0.3rem;
         width:95%;
          font-size:0.8rem;
@@ -250,12 +250,16 @@
         padding: 0.4rem 0.32rem;
         width:100%;
     }
+    .pingli .images img{
+        padding:0.2rem;
+    }
 
     .pingli .meta{
         display:inline-block;
         width:100%;
         height:1.25rem;
         font-size:0.8375rem;
+        margin-bottom:0.5rem;
         color:#ccc;
     }
     .pingli .meta img{

@@ -1,9 +1,9 @@
 <template>
 
     <div class="detail" >
-        <bHeader title="寻物启事" />
-
-        <div class="m-info" >
+        <bIndicator v-if="isLoaded == false" />
+        <bHeader title="寻物启事" />   
+        <div v-if="isLoaded == true"  class="m-info" >
             <div class="info">
                 <div class="avater">
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="60" height="60" />
@@ -62,23 +62,27 @@
 
 <script>
     import Api from '../../src/api.js'
-    import { MessageBox } from 'mint-ui';
+    import { MessageBox,Indicator } from 'mint-ui';
     import bHeader  from '../common/bHeader.vue';
+    import bIndicator  from '../common/bIndicator.vue';
     export default {
         components:{
-            bHeader
+            bHeader,Indicator,bIndicator
         },
         name: 'detail',
         data:function(){
           return {
+              isLoaded:false,
               post:{},
               user:{}
           };
         },
         created(){
+            //console.log(Indicator.open());
             this.user = Api.getStorage('user');
             Api.request({api:'posts/'+this.$route.params.id,data:{}},(res)=>{
                 this.post = res.data;
+                this.isLoaded = true;
             });
         },
         methods:{
@@ -119,6 +123,9 @@
 
 <style>
     *{padding:0;margin:0;}
+    .vue-loading{
+        margin-top:2.88rem;
+    }
     .mint-header{
          height:2.88rem;
          background:url('../../assets/title-bg.png')
@@ -171,6 +178,7 @@
     .detail .m-info .info .meta .address {
         width:100%;
         font-size:0.8rem;
+         padding-top:0.3rem;
         color:#ccc;
          display:inline-block;
     }
@@ -183,12 +191,14 @@
     .detail .m-info .info .meta .time {
         width:100%;
         font-size:0.8rem;
+         padding-top:0.3rem;
         color:#ccc;
          display:inline-block;
     }
     .detail .m-info .info .meta .amount{
         width:100%;
         font-size:1.2rem;
+        padding-top:0.3rem;
         color:red;
          display:inline-block;
     }
