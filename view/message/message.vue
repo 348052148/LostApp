@@ -1,13 +1,15 @@
 <template>
-    <div>
-    <div class="message" >
+    <div class="message-contair">
         <mt-header fixed title="消息"></mt-header>
 
+    <div class="message" >
+        
         <div class="func">
             <ul>
                 <li><img src="../../assets/icon-times.png"/><span>丢丢时报</span></li>
                 <span class="DS"></span>
                 <li><img src="../../assets/icon-mes.png"/><span>系统消息</span></li>
+                <span class="DS"></span>
             </ul>
         </div>
 
@@ -21,7 +23,7 @@
      import bBannar  from '../common/bBannar.vue';
     export default {
         components:{
-            bBannar  
+            bBannar 
         },
         name: 'message',
         data:function(){
@@ -35,6 +37,11 @@
 
 <style>
     *{padding:0;margin:0;}
+    .message-contair{
+        height: 100%;
+        background: #eee;
+        overflow: hidden;
+    }
     .DS{
         display:block;
         width:100%;
@@ -43,13 +50,15 @@
     }
     .message {
         width:100%;
-        height:45rem;
+        margin-top:2.88rem;
         background:#eee;
+        position:absolute;  
+            top: 0px;  
+            bottom: 0px;  
     }
     /**功能列表 */
     .message .func{
         width:100%;
-        margin-top:2.63rem;
         background:#fff;
         display:inline-block;
 

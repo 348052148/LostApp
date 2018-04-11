@@ -1,36 +1,53 @@
 <template>
 
     <div class="detail" >
-        <mt-header fixed title="寻物启事">
-            <router-link to="/" slot="left">
-                <mt-button icon="back"></mt-button>
-            </router-link>
-        </mt-header>
-
-        <div class="m-info" >
+        <bIndicator v-if="isLoaded == false" />
+        <bHeader title="寻物启事" />   
+        <div v-if="isLoaded == true"  class="m-info" >
             <div class="info">
                 <div class="avater">
                     <img style="border-radius:20px;" src="../../assets/avater.jpg" width="60" height="60" />
                     <span class="Fill"></span>
                 </div>
                 <div class="meta" >
-                    <span class="name">丢丢君 <mt-badge size="small" color="#888" >交通工具</mt-badge></span>
-                    <span class="address"><img height="14" src="../../assets/icon-map1.png" />渝北区线外城市花园</span>
-                    <span class="time">2018-03-26 12:12:01</span>
-                    <span class="amount">￥12.0</span>
+                    <span class="name">{{post.publish.nickname}} <mt-badge size="small" color="#888" >{{post.type}}</mt-badge></span>
+                    <span class="address"><img height="14" src="../../assets/icon-map1.png" />{{post.address}}</span>
+                    <span class="time">{{post.publish_time}}</span>
+                    <span class="amount">￥{{post.amount}}</span>
                 </div>
 
                 <div class="tag">
-                    <span class="taginfo"><mt-badge size="large" color="red" >丢</mt-badge></span>
+                    <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
-                    <span class="chat"><mt-badge size="small" color="#ff9900" >归还</mt-badge> <mt-badge size="small" color="#ff9900" >联系他</mt-badge></span>
+
+                    <span class="chat" v-if="post.status==0">
+                        <mt-badge v-if="post.publish_type==2" size="normal" @click.native="revert(post.id)" color="#ff9900" >归还</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" @click.native="claim(post.id)" color="#ff9900" >认领</mt-badge> 
+                    
+                        <mt-badge size="normal" color="#ff9900" >联系他</mt-badge>
+                    </span>
+
+                    <span class="chat" v-else-if="post.status==1">
+                        <mt-badge v-if="post.publish_type==2" size="normal"  color="#ff9900" >归还中</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" color="#ff9900" >认领中</mt-badge> 
+                
+                    </span>
+
+                    <span class="chat" v-else-if="post.status==2">
+                        <mt-badge v-if="post.publish_type==2" size="normal" color="#ff9900" >已归还</mt-badge> 
+
+                        <mt-badge v-else-if="post.publish_type==1" size="normal"  color="#ff9900" >已认领</mt-badge> 
+                    
+                    </span>
                 </div>
             </div>
-            <span class="DS"></span>
+            <span class="DSS"></span>
             <div class="content">
-                <div class="text">早上在渝北区线外城市花园711吃面包，不慎遗落心爱的马克杯，望有看到者联系。电话18523922708</div>
+                <div class="text">{{post.content}}</div>
                 <div class="image">
-                    <img src="../../assets/b2.jpg" />
+                    <img v-for="attachment in post.attachment" :src="attachment" />
                 </div>
             </div>
         </div>
@@ -44,21 +61,74 @@
 </template>
 
 <script>
-
+    import Api from '../../src/api.js'
+    import { MessageBox,Indicator } from 'mint-ui';
+    import bHeader  from '../common/bHeader.vue';
+    import bIndicator  from '../common/bIndicator.vue';
     export default {
+        components:{
+            bHeader,Indicator,bIndicator
+        },
         name: 'detail',
         data:function(){
           return {
-              selected: 100
+              isLoaded:false,
+              post:{},
+              user:{}
           };
+        },
+        created(){
+            //console.log(Indicator.open());
+            this.user = Api.getStorage('user');
+            Api.request({api:'posts/'+this.$route.params.id,data:{}},(res)=>{
+                this.post = res.data;
+                this.isLoaded = true;
+            });
+        },
+        methods:{
+            revert(pid){
+                MessageBox.confirm('确定执行此操作?').then(action => {
+                    Api.request({api:'posts/'+this.$route.params.id,data:{
+                     status:1,
+                     uid:this.user.id,
+                     m:'PUT'
+                    }},(res)=>{
+                        if(res.code==0){
+                                window.location.reload();
+                        }
+                        
+                    });
+                });
+                 
+            },
+            claim(pid){
+                 MessageBox.confirm('确定执行此操作?').then(action => {
+                        Api.request({api:'posts/'+this.$route.params.id,data:{
+                            status:1,
+                            uid:this.user.id,
+                            m:'PUT'
+                        }},(res)=>{
+                             if(res.code==0){
+                                window.location.reload();
+                            }
+                        });
+                 });
+                
+            }
+
         }
     }
 
 </script>
 
 <style>
+    *{padding:0;margin:0;}
+    .vue-loading{
+        margin-top:2.88rem;
+    }
     .mint-header{
-         height:2.875rem;
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
      }
     .detail {
         width:100%;
@@ -67,9 +137,9 @@
         display:inline-block;
     }
     /**分割操作 */
-    .DS{
+    .DSS{
         display:block;
-        border-top:0.1875rem solid #eee;
+        border-top:0.1rem solid #eee;
     }
     /**填充操作 */
     .Fill{
@@ -80,12 +150,13 @@
     /**信息模块 */
     .detail .m-info{
         width:100%;
+        margin-top:2.88rem;
         background:#fff;
     }
     .detail .m-info .info {
         width:100%;
         display:inline-block;
-        margin-top:3.125rem;
+        margin-top:0.4rem;
         padding-top:0.2rem;
     }
     .detail .m-info .info .avater {
@@ -106,7 +177,8 @@
     }
     .detail .m-info .info .meta .address {
         width:100%;
-        font-size:0.2rem;
+        font-size:0.8rem;
+         padding-top:0.3rem;
         color:#ccc;
          display:inline-block;
     }
@@ -118,28 +190,30 @@
     }
     .detail .m-info .info .meta .time {
         width:100%;
-        font-size:0.2rem;
+        font-size:0.8rem;
+         padding-top:0.3rem;
         color:#ccc;
          display:inline-block;
     }
     .detail .m-info .info .meta .amount{
         width:100%;
-        font-size:1rem;
+        font-size:1.2rem;
+        padding-top:0.3rem;
         color:red;
          display:inline-block;
     }
     /** */
     .detail .m-info .info .tag{
         display:inline-block;
-        width:7.5rem;
+        width:8rem;
         float:right;
     }
     .detail .m-info .info .tag .taginfo{
         display:inline-block;
         width:2.5rem;
         float:right;
-        margin-right:0.3rem;
-        height:2.5rem;
+        margin-right:1rem;
+        height:3rem;
     }
     .detail .m-info .info .tag .chat{
          display:inline-block;
@@ -172,13 +246,13 @@
     }
     .detail .m-recommend h4{
         font-size:0.875rem;
-        line-height:1.5625rem;
+        line-height:2rem;
         color:#666;
-        text-indent:0.4rem;
-        padding-bottom:0.2rem;
+        text-indent:1rem;
+        padding-top:0.61rem;
         border-bottom:1px solid #eee;
     }
     .detail .m-recommend .content{
-
+        height: 50px;
     }
 </style>

@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "element-ui": "^2.1.0",
-    "mint-ui": "^2.2.13"
+    "mint-ui": "^2.2.13",
+    "vue-infinite-loading": "^2.2.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

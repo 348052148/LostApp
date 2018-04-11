@@ -1,8 +1,7 @@
 <template>
 
-    <div class="publish"  >
-        
-        <bHeader title="我的发布" />
+    <div class="order"  >
+        <bHeader title="我的交易"  />
 
         <div class ="content">
             <mt-navbar v-model="selected">
@@ -14,8 +13,11 @@
             <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
 
-                <div v-for="post in LF">
-                <div class="m-pb">
+            <div v-for="post in LF">
+                <div class="m-od">
+                        <div class="state"><span class="title">订单编号</span> : &nbsp;$67928931 
+                            <span class="status">已完成</span>
+                        </div>
                         <router-link :to="'/detail/'+post.id">
                         <div class ="avater">
                             <img src="../../assets/avater.jpg" width="80" height="80" >
@@ -34,17 +36,12 @@
                             <div class="amount"> ￥{{post.amount}}
                                 
                                 <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
-
-                                <div v-if="post.status==0" class='btn btn-edit'><span>编辑</span></div>
-
-                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>确认</span></div>
-
                                 
                             </div>
                         </div>
                 </div>
 
-                    <span class="DS"></span>
+                    <span class="DSf"></span>
                  </div>
             
                 
@@ -52,41 +49,44 @@
             <infinite-loading @infinite="loadLFMore"></infinite-loading>
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
-                
-                 <div v-for="post in LT">
-                <div class="m-pb">
-                        <router-link :to="'/detail/'+post.id">
-                        <div class ="avater">
-                            <img src="../../assets/avater.jpg" width="80" height="80" >
+
+                    <div v-for="post in LT">
+                        <div class="m-od">
+
+                                <div class="state"><span class="title">订单编号</span> : &nbsp;$67928931 
+                                    <span class="status">已完成</span>
+                                </div>
+
+                                <router-link :to="'/detail/'+post.id">
+                                <div class ="avater">
+                                    <img src="../../assets/avater.jpg" width="80" height="80" >
+                                </div>
+                                </router-link>
+
+                                <div class="context" >
+                                    <div class="tag">
+                                    <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
+                                    <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                                    <span class="timer">2018-04-05 20:07:16</span>
+                                    </div>
+
+                                    <span class="text">{{post.content}} </span>
+                                    <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
+                                    <div class="amount"> ￥{{post.amount}}
+                                        
+                                        <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
+
+                                         <div v-if="post.status==1" class='btn'><span>确认</span></div>
+                                        
+                                    </div>
+                                </div>
                         </div>
-                        </router-link>
-
-                        <div class="context" >
-                            <div class="tag">
-                            <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
-                            <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
-                            <span class="timer">2018-04-05 20:07:16</span>
-                            </div>
-
-                            <span class="text">{{post.content}} </span>
-                            <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
-                            <div class="amount"> ￥{{post.amount}}
-                                
-                                <div v-if="post.status==0 || post.status==2" class='btn btn-del'><span>删除</span></div>
-
-                                <div v-if="post.status==0" class='btn btn-edit'><span>编辑</span></div>
-
-                                <div  @click.native="complate(post.id)" v-else-if="post.status==1"  class='btn'><span>确认</span></div>
-
-                                
-                            </div>
-                        </div>
-                </div>
-
-                    <span class="DS"></span>
+                    <span class="DSf"></span>
                  </div>
+                
 
-                <infinite-loading @infinite="loadLTMore"></infinite-loading>                
+                <infinite-loading @infinite="loadLTMore"></infinite-loading>
+                
             </mt-tab-container-item>
 
             </mt-tab-container>
@@ -99,10 +99,9 @@
     import Api from '../../src/api.js'
     import InfiniteLoading from 'vue-infinite-loading';
     import bHeader  from '../common/bHeader.vue';
-    import { MessageBox } from 'mint-ui';
     export default {
          components:{
-            InfiniteLoading ,bHeader
+            InfiniteLoading  ,bHeader
         },
         name: 'app',
         data:function(){
@@ -123,7 +122,7 @@
             loadLFMore($state) {
                 if($state)
                         $state.loaded();
-                Api.request({api:'users/'+this.user.id+'/posts',data:{publish_type:2,page:this.LFpage}},(res)=>{
+                Api.request({api:'users/'+this.user.id+'/accounts',data:{publish_type:2,page:this.LFpage}},(res)=>{
                     if(res.code == 0){
                         for(var i=0;i<res.data.length;i++){
                             this.LF.push(res.data[i]);
@@ -140,7 +139,7 @@
             loadLTMore($state){
                 if($state)
                         $state.loaded();
-                Api.request({api:'users/'+this.user.id+'/posts',data:{publish_type:1,page:this.LTpage}},(res)=>{
+                Api.request({api:'users/'+this.user.id+'/accounts',data:{publish_type:1,page:this.LTpage}},(res)=>{
                     if(res.code == 0){
                         for(var i=0;i<res.data.length;i++){
                             this.LT.push(res.data[i]);
@@ -151,23 +150,7 @@
                     }
                     
                 });
-            },
-
-             complate(pid){
-                 MessageBox.confirm('确定执行此操作?').then(action => {
-                    Api.request({api:'posts/'+pid,data:{
-                        status:2,
-                        uid:this.user.id,
-                        m:'PUT'
-                    }},(res)=>{
-                        if(res.code==0){
-                                window.location.reload();
-                        }
-                        
-                    });
-                 });
-                 
-            },
+            }
         }
     }
 
@@ -180,7 +163,7 @@
         width:100%;
         height:2.5rem;
     }
-    .DS{
+    .DSf{
         display:block;
         width:99%;
         margin:0 auto;
@@ -190,72 +173,94 @@
          height:2.88rem;
          background:url('../../assets/title-bg.png')
      }
-     .publish .content{
-         margin-top:2.88rem;
-         background:#eee;
+     .order .content{
+          margin-top:2.88rem;
+          background:#eee;
            position:absolute;  
             top: 0px;  
-            bottom: 0px;
+            bottom: 0px;  
      }
    
+
     /**新样式 */
-    .m-pb {
+    .m-od {
+        background:#fff;
          display:inline-block;
         width:100%;
-        padding-top:0.8rem;
+        margin-top:0.1rem;
+        padding-top:0.3rem;
         margin-bottom:0.2rem;
-        background:#fff;
         padding-bottom:0.8rem;
     }
-    .m-pb .avater{
+    .m-od .avater{
          display:inline-block;
         height:100%;
         width:23%;
+        padding-bottom:1rem;
     }
-    .m-pb .avater img{
+    .m-od .avater img{
         border:1px solid #eee;
         margin-left:0.2rem;
     }
-    .m-pb .context{
+    .m-od .context{
         display:inline-block;
         height:100%;
         width:72%;
     }
-    .m-pb .context .tag{
+    .m-od .context .tag{
          display:inline-block;
         width:100%;
         margin-bottom:0.3rem;
     }
-    .m-pb .context .timer {
+    .m-od .context .timer {
         font-size:0.8rem;
         color:#ccc;
         float:right;
     }
-    .m-pb .context .text{
+    .m-od .context .text{
         width:100%;
         display:inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size:0.9rem;
-        margin:0.3rem 0;
+        padding: 0.3rem 0;
     }
-    .m-pb .context .address{
+    .m-od .context .address{
         align:middle;
         width:100%;
         display:inline-block;
          font-size:0.8rem;
         color:#ccc;
     }
-    .m-pb .context .amount{
+    .m-od .context .amount{
         display:inline-block;
         width:100%;
         font-size:16px;
-        margin-top:0.2rem;
         color:red;
     }
-    .m-pb .context .amount .mint-badge{
+    .m-od .context .amount .mint-badge{
         float:right;
+    }
+
+    .m-od .state{
+        width:100%;
+        font-size:0.8rem;
+        height:1.5rem;
+        align:middle;
+        text-indent:5px;
+        border-bottom:1px solid #eee;
+        padding-top:0.5rem;
+        margin-bottom:0.5rem;
+    }
+    .m-od .state .title{
+        font-weight:800;
+    }
+    .m-od .state .status{
+        display:inline-block;
+        float:right;
+
+        margin-right:0.5rem;
     }
 
     .btn{
@@ -275,4 +280,5 @@
      .btn-edit{
          	border:2px solid #ff9900;
      }
+
 </style>

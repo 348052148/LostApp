@@ -88,9 +88,14 @@
 </script>
 
 <style>
+    *{padding:0;margin:0;}
     .mint-header{
-        height:2.875rem;
-    }
+         height:2.88rem;
+         background:url('../../assets/title-bg.png')
+     }
+     .cat{
+         overflow: hidden;
+     }
     .cat .content{
         width:100%;
         height:100%;

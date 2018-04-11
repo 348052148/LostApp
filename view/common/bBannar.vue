@@ -14,6 +14,10 @@
                 <img slot="icon" src="../../assets/nav-icon-cat.png">
                 分类
             </mt-tab-item>
+
+           <mt-tab-item id="tab+">
+                <img slot="icon" src="../../assets/nav-icon-cat.png">发布
+            </mt-tab-item>
        
             <mt-tab-item id="tab3">
                 <img slot="icon" src="../../assets/nav-icon-msg.png">
@@ -61,6 +65,9 @@
                 }
                 if(val == 'tab4'){
                     this.$router.push({ path: '/user' })
+                }
+                if(val == 'tab+'){
+                    this.$router.push({ path: '/new' })
                 }
             }
         }

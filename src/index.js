@@ -21,6 +21,8 @@ import Detail from './../view/detail/detail.vue'
 
 import User from './../view/user/user.vue'
 
+import Person from './../view/person/person.vue'
+
 import Message from './../view/message/message.vue'
 
 import List from './../view/list/list.vue'
@@ -31,15 +33,30 @@ import New from './../view/new/new.vue'
 
 import Publish from './../view/publish/publish.vue'
 
+import Order from './../view/order/order.vue'
+
+import Login from './../view/login/login.vue'
+
+import Register from './../view/register/register.vue'
+
+import Api from './api.js'
+
+
+Api.setSid();
+
 const routes = [
     { path: '/', component: Home },
-    { path: '/detail', component:Detail},
+    { path: '/detail/:id', component:Detail},
     { path: '/user', component:User},
+    { path: '/person/:id', component:Person},
     { path: '/msg', component:Message},
     { path: '/list', component:List},
     { path: '/cat', component:Cat},
     { path: '/new', component:New},
-    { path: '/publish', component:Publish}
+    { path: '/publish', component:Publish},
+    { path:'/order', component:Order},
+    { path: '/login', component:Login},
+    { path: '/register', component:Register}
 ];
 
 const router = new VueRouter({
