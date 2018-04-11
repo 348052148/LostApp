@@ -10,70 +10,59 @@
         <div class="content">
             <router-link to="/list" >
             <div class="item">
-                <img width="80" height="80" src="../../assets/class-phone.png" />
+                <img src="../../assets/class-phone.png" />
                 <span>手机</span>
             </div>
             </router-link>
             <div class="item">
-                <img width="80" height="80" src="../../assets/class-wallet.png" />
+                <img src="../../assets/class-wallet.png" />
                 <span>钱包</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/class-traff.png" />
+                <img src="../../assets/class-traff.png" />
                 <span>交通工具</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
+                <img src="../../assets/class-bag.png" />
                 <span>背包/提包</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>手机</span>
+                <img src="../../assets/class-jewelry.png" />
+                <span>首饰</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>钱包</span>
+                <img src="../../assets/class-animal.png" />
+                <span>宠物</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>交通工具</span>
+
+                <span>数码产品</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>照片</span>
+
+                <span>证件</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>手机</span>
+
+                <span>钥匙串</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>钱包</span>
+
+                <span>书籍</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>交通工具</span>
+
+                <span>衣物</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>照片</span>
+
+                <span>生活用品</span>
             </div>
             <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>手机</span>
+
+                <span>人</span>
             </div>
-            <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>钱包</span>
-            </div>
-            <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>交通工具</span>
-            </div>
-            <div class="item">
-                <img width="80" height="80" src="../../assets/nav-icon-msg.png" />
-                <span>照片</span>
-            </div>
+
         </div>
     </div>
 
@@ -115,11 +104,11 @@
         margin-top:1.25rem;
     }
     .cat .content .item img{
-        width:3.4375rem;
-        height:3.4375rem;
         text-align:center;
         display:inline-block;
         margin-left:0.9375rem;
+        margin-left: 1.3rem;
+        vertical-align: middle;
     }
     .cat .content .item span{
          display:inline-block;
