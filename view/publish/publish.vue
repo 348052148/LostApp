@@ -24,9 +24,9 @@
 
                         <div class="context" >
                             <div class="tag">
-                            <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
-                            <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
-                            <span class="timer">2018-04-05 20:07:16</span>
+                                <mt-badge class="tag-class" size="small">{{post.entity_class}}</mt-badge>
+                                <mt-badge class="tag-type" v-for="tag in post.tags" size="small">{{tag}}</mt-badge>
+                                <span class="timer">2018-04-05 20:07:16</span>
                             </div>
 
                             <span class="text">{{post.content}} </span>
@@ -63,8 +63,8 @@
 
                         <div class="context" >
                             <div class="tag">
-                            <mt-badge size="small" color="#888" >{{post.entity_class}}</mt-badge>
-                            <mt-badge v-for="tag in post.tags" size="small" color="red">{{tag}}</mt-badge>
+                            <mt-badge size="small" class="tag-class">{{post.entity_class}}</mt-badge>
+                            <mt-badge v-for="tag in post.tags" size="small" class="tag-type">{{tag}}</mt-badge>
                             <span class="timer">2018-04-05 20:07:16</span>
                             </div>
 
@@ -208,27 +208,44 @@
         padding-bottom:0.8rem;
     }
     .m-pb .avater{
-         display:inline-block;
+         display:block;
         height:100%;
-        width:23%;
+        width:30%;
+        float:left
     }
     .m-pb .avater img{
-        border:1px solid #eee;
-        margin-left:0.2rem;
+       margin-left: 0.2rem;
+       background: #fff;
+       width: 104px;
+       height: 104px;
+
     }
     .m-pb .context{
         display:inline-block;
         height:100%;
-        width:72%;
+        width:65%;
+        margin-left:5px;
     }
     .m-pb .context .tag{
          display:inline-block;
         width:100%;
-        margin-bottom:0.3rem;
+        margin-bottom:0.4rem;
+    }
+    .m-pb .context .tag .tag-class{
+        border: 1px solid #FFAEB9;
+        color: #FF82AB;
+        border-radius:0px
+
+    }
+    .m-pb .context .tag .tag-type{
+        padding: 2px 4px;
+        border-radius: 0px;
+        border: 1px solid #43c5f0;
+        color: #43c5f0;
     }
     .m-pb .context .timer {
-        font-size:0.8rem;
-        color:#ccc;
+        font-size: 0.85rem;
+        color: #8c8989;
         float:right;
     }
     .m-pb .context .text{
@@ -237,15 +254,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-size:0.9rem;
-        margin:0.3rem 0;
+        font-size:0.95rem;
     }
     .m-pb .context .address{
         align:middle;
         width:100%;
         display:inline-block;
-         font-size:0.8rem;
-        color:#ccc;
+         font-size: 0.85rem;
+         color: #8e8b8b;
     }
     .m-pb .context .amount{
         display:inline-block;
@@ -259,10 +275,11 @@
     }
 
     .btn{
-        float:right;
-        border-radius:1rem;
-        margin-right:0.5rem;
-        border:2px solid #f6b26b;
+       float: right;
+       border-radius: 2px;
+       margin-right: 0.5rem;
+       background: #ff8282;
+
     }
     .btn span{
         color:#666;
@@ -270,9 +287,14 @@
         padding:10px;
     }
     .btn-del{
-        border:2px solid red;
+        background: #FFB6C1;
+        border-radius: 2px;
      }
      .btn-edit{
-         	border:2px solid #ff9900;
+        background: #fbb957;
+        border-radius: 2px;
+     }
+     .mint-badge.is-primary {
+         background-color: #ffffff;
      }
 </style>

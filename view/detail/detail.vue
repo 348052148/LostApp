@@ -10,35 +10,35 @@
                     <span class="Fill"></span>
                 </div>
                 <div class="meta" >
-                    <span class="name">{{post.publish.nickname}} <mt-badge size="small" color="#888" >{{post.type}}</mt-badge></span>
+                    <span class="name">{{post.publish.nickname}} <mt-badge size="small" class="tag-class">{{post.type}}</mt-badge></span>
                     <span class="address"><img height="14" src="../../assets/icon-map1.png" />{{post.address}}</span>
                     <span class="time">{{post.publish_time}}</span>
                     <span class="amount">￥{{post.amount}}</span>
                 </div>
 
                 <div class="tag">
-                    <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" color="red" >{{tag}}</mt-badge></span>
+                    <span class="taginfo"><mt-badge v-for="tag in post.tags" size="large" class="tag-type" >{{tag}}</mt-badge></span>
                     <span class="Fill"></span>
 
                     <span class="chat" v-if="post.status==0">
-                        <mt-badge v-if="post.publish_type==2" size="normal" @click.native="revert(post.id)" color="#ff9900" >归还</mt-badge> 
+                        <mt-badge v-if="post.publish_type==2" size="normal" class="action" @click.native="revert(post.id)" color="rgb(65, 212, 222)" >归还</mt-badge>
 
-                        <mt-badge v-else-if="post.publish_type==1" size="normal" @click.native="claim(post.id)" color="#ff9900" >认领</mt-badge> 
+                        <mt-badge v-else-if="post.publish_type==1" size="normal" class="action" @click.native="claim(post.id)" color="rgb(65, 212, 222)" >认领</mt-badge>
                     
-                        <mt-badge size="normal" color="#ff9900" >联系他</mt-badge>
+                        <mt-badge size="normal" class="action" color="rgb(65, 212, 222)" >联系他</mt-badge>
                     </span>
 
                     <span class="chat" v-else-if="post.status==1">
-                        <mt-badge v-if="post.publish_type==2" size="normal"  color="#ff9900" >归还中</mt-badge> 
+                        <mt-badge v-if="post.publish_type==2" class="action" size="normal"  color="rgb(65, 212, 222)" >归还中</mt-badge>
 
-                        <mt-badge v-else-if="post.publish_type==1" size="normal" color="#ff9900" >认领中</mt-badge> 
+                        <mt-badge v-else-if="post.publish_type==1" class="action" size="normal" color="rgb(65, 212, 222)" >认领中</mt-badge>
                 
                     </span>
 
                     <span class="chat" v-else-if="post.status==2">
-                        <mt-badge v-if="post.publish_type==2" size="normal" color="#ff9900" >已归还</mt-badge> 
+                        <mt-badge v-if="post.publish_type==2" class="action" size="normal" color="rgb(65, 212, 222)" >已归还</mt-badge>
 
-                        <mt-badge v-else-if="post.publish_type==1" size="normal"  color="#ff9900" >已认领</mt-badge> 
+                        <mt-badge v-else-if="post.publish_type==1" class="action" size="normal"  color="rgb(65, 212, 222)" >已认领</mt-badge>
                     
                     </span>
                 </div>
@@ -175,11 +175,16 @@
         width:100%;
          display:inline-block;
     }
+    .detail .m-info .info .meta .name .tag-class{
+        border: 1px solid #FFAEB9;
+        color: #FF82AB;
+        border-radius: 0px;
+    }
     .detail .m-info .info .meta .address {
         width:100%;
         font-size:0.8rem;
          padding-top:0.3rem;
-        color:#ccc;
+        color:#827e7e;;
          display:inline-block;
     }
     .detail .m-info .info .meta .address img{
@@ -192,7 +197,7 @@
         width:100%;
         font-size:0.8rem;
          padding-top:0.3rem;
-        color:#ccc;
+        color:#827e7e;;
          display:inline-block;
     }
     .detail .m-info .info .meta .amount{
@@ -214,6 +219,12 @@
         float:right;
         margin-right:1rem;
         height:3rem;
+    }
+    .detail .m-info .info .tag .taginfo .tag-type{
+        padding: 2px 4px;
+        border-radius: 0px;
+        border: 1px solid #43c5f0;
+        color: #43c5f0;
     }
     .detail .m-info .info .tag .chat{
          display:inline-block;
@@ -255,4 +266,12 @@
     .detail .m-recommend .content{
         height: 50px;
     }
+    .chat .action{
+        font-size: 15px;
+        padding: 2px 8px;
+        border-radius:2px;
+    }
+    .mint-badge.is-primary {
+             background-color: #ffffff;
+         }
 </style>
