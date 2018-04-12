@@ -70,7 +70,7 @@
                                     <span class="timer">2018-04-05 20:07:16</span>
                                     </div>
 
-                                    <span class="text">{{post.content}} </span>
+                                    <span class="text">{{post.content.substr(0,15)}} </span>
                                     <span class="address"><img height="14" src="../../assets/icon-map1.png" /> {{post.addressDetail}} </span>
                                     <div class="amount"> ￥{{post.amount}}
                                         

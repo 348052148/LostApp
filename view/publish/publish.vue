@@ -200,18 +200,18 @@
    
     /**新样式 */
     .m-pb {
+        background:#fff;
          display:inline-block;
         width:100%;
+        margin-top:0.1rem;
         padding-top:0.8rem;
         margin-bottom:0.2rem;
-        background:#fff;
         padding-bottom:0.8rem;
     }
     .m-pb .avater{
-         display:block;
+        display:inline-block;
         height:100%;
         width:30%;
-        float:left
     }
     .m-pb .avater img{
        margin-left: 0.2rem;
@@ -258,6 +258,7 @@
     }
     .m-pb .context .address{
         align:middle;
+        text-align:middle;
         width:100%;
         display:inline-block;
          font-size: 0.85rem;
